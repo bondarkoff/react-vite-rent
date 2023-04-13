@@ -9,15 +9,15 @@
 import React from 'react';
 import Header from './components/ui/header';
 import MainCarCard from './components/mainCarCard/MainCarCard';
+import DestinationSwitch from './components/destinationSwitch/DestinationSwitch';
 
 function App() {
     return (
-        <>
+        <div className='container'>
             <Header />
-            <div className='container'>
-                <MainCarCard />
-            </div>
-        </>
+            <MainCarCard />
+            <DestinationSwitch />
+        </div>
     );
 }
 
