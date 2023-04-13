@@ -5,12 +5,12 @@ const Header = () => {
     return (
         <header>
             <div className='container'>
-                <div className={styles.wrapper}>
-                    <div className={styles.logo}>
+                <div className='d-flex flex-row jcsb aic'>
+                    <div className='d-flex jcsb'>
                         <a href='#' className={styles.logotype}>
                             MORENT
                         </a>
-                        <div action='#' className={styles.form}>
+                        <div action='#' className='pos-r'>
                             <img
                                 className={styles.search_icon}
                                 width={24}
@@ -33,7 +33,7 @@ const Header = () => {
                             />
                         </div>
                     </div>
-                    <div className={styles.user_wrapper}>
+                    <div className='d-flex flex-row jcsb aic'>
                         <a className={styles.user}>
                             <img width={24} height={24} src='./images/heart.svg' alt='Favorite' />
                         </a>

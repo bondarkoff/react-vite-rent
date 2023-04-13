@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './mainCarCard.module.scss';
 
-const MainCarCard = props => {
+const MainCarCard = () => {
     return (
-        <div className='wrapper'>
+        <div className='d-flex flex-row jcsb aic'>
             <div className={styles.card}>
                 <div className={styles.title}>
                     The Best Platform<br></br> for Car Rental
