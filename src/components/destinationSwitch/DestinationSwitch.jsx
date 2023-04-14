@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './DestinationSwitch.module.scss';
+import DestinationInfo from './destinationInfo/DestinationInfo';
 
 const DestinationSwitch = () => {
     return (
@@ -13,46 +14,7 @@ const DestinationSwitch = () => {
                         <div className={styles.title}>Pick-Up</div>
                     </div>
                 </div>
-                <div className={styles.wrapper}>
-                    <div className={styles.item}>
-                        <div className={styles.itemTitle}>Locations</div>
-                        <div className='d-flex flex-row aic jcsb mt-8'>
-                            <div className={styles.itemDropdownTitle}>Select your city</div>
-                            <img
-                                width={14}
-                                height={14}
-                                src='./images/arrow-down.svg'
-                                alt='Arrow Down'
-                            />
-                        </div>
-                        <div className={styles.divider}></div>
-                    </div>
-                    <div className={styles.item}>
-                        <div className={styles.itemTitle}>Date</div>
-                        <div className='d-flex flex-row aic jcsb mt-8'>
-                            <div className={styles.itemDropdownTitle}>Select your date</div>
-                            <img
-                                width={14}
-                                height={14}
-                                src='./images/arrow-down.svg'
-                                alt='Arrow Down'
-                            />
-                        </div>
-                        <div className={styles.divider}></div>
-                    </div>
-                    <div className={styles.item}>
-                        <div className={styles.itemTitle}>Time</div>
-                        <div className='d-flex flex-row aic jcsb mt-8'>
-                            <div className={styles.itemDropdownTitle}>Select your time</div>
-                            <img
-                                width={14}
-                                height={14}
-                                src='./images/arrow-down.svg'
-                                alt='Arrow Down'
-                            />
-                        </div>
-                    </div>
-                </div>
+                <DestinationInfo />
             </div>
             <button className={styles.swapButton}>
                 <img width={24} height={24} src='./images/swap.svg' alt='Swap Button' />
@@ -66,46 +28,7 @@ const DestinationSwitch = () => {
                         <div className={styles.title}>Drop - Off</div>
                     </div>
                 </div>
-                <div className={styles.wrapper}>
-                    <div className={styles.item}>
-                        <div className={styles.itemTitle}>Locations</div>
-                        <div className='d-flex flex-row aic jcsb mt-8'>
-                            <div className={styles.itemDropdownTitle}>Select your city</div>
-                            <img
-                                width={14}
-                                height={14}
-                                src='./images/arrow-down.svg'
-                                alt='Arrow Down'
-                            />
-                        </div>
-                        <div className={styles.divider}></div>
-                    </div>
-                    <div className={styles.item}>
-                        <div className={styles.itemTitle}>Date</div>
-                        <div className='d-flex flex-row aic jcsb mt-8'>
-                            <div className={styles.itemDropdownTitle}>Select your date</div>
-                            <img
-                                width={14}
-                                height={14}
-                                src='./images/arrow-down.svg'
-                                alt='Arrow Down'
-                            />
-                        </div>
-                        <div className={styles.divider}></div>
-                    </div>
-                    <div className={styles.item}>
-                        <div className={styles.itemTitle}>Time</div>
-                        <div className='d-flex flex-row aic jcsb mt-8'>
-                            <div className={styles.itemDropdownTitle}>Select your time</div>
-                            <img
-                                width={14}
-                                height={14}
-                                src='./images/arrow-down.svg'
-                                alt='Arrow Down'
-                            />
-                        </div>
-                    </div>
-                </div>
+                <DestinationInfo />
             </div>
         </div>
     );

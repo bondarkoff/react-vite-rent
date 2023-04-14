@@ -1,5 +1,5 @@
 // TODO:
-// 1 - Сверстать Pick-Up Drop-Off блоки и написать им необходимую логику.
+// 1 - написать destinationSwitch необходимую логику.
 // 2 - Создать json файл на сервере с данными для карточек.
 // 3 - Добавить карточки с сервера в проект (mockapi или json-server).
 // 4 - Сверстать карточки и вывести их на страницу, застилизовать их.
@@ -13,11 +13,13 @@ import DestinationSwitch from './components/destinationSwitch/DestinationSwitch'
 
 function App() {
     return (
-        <div className='container'>
+        <>
             <Header />
-            <MainCarCard />
-            <DestinationSwitch />
-        </div>
+            <div className='container'>
+                <MainCarCard />
+                <DestinationSwitch />
+            </div>
+        </>
     );
 }
 

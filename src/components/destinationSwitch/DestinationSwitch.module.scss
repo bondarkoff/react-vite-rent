@@ -5,6 +5,52 @@
     background: #ffffff;
 }
 
+// input::-webkit-calendar-picker-indicator {
+//     visibility: hidden;
+// }
+
+input::-webkit-calendar-picker-indicator {
+    background-image: url('./images/arrow-down.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+select {
+    width: 130px;
+    // background-image: url('./images/arrow-down.svg');
+    background-size: contain;
+    background-position: right;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    cursor: pointer;
+    appearance: none;
+    overflow: hidden;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    color: #1a202c;
+    z-index: 2;
+    background: none;
+}
+
+.arrowDown {
+    position: absolute;
+    z-index: 1;
+    right: 10px;
+}
+.date,
+.time,
+.city {
+    border: none;
+    outline: none;
+}
+
+.time {
+    width: 146px;
+}
+
 .bigDot,
 .bigSecondDot {
     position: relative;
