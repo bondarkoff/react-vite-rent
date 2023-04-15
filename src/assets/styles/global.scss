@@ -26,6 +26,18 @@ p {
     padding: 0;
 }
 
+li,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
 .carCards {
     display: grid;
     grid-template-columns: repeat(4, 304px);
@@ -38,4 +50,39 @@ p {
     font-size: 16px;
     line-height: 20px;
     color: #90a3bf;
+}
+
+.count {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #90a3bf;
+
+    position: absolute;
+    right: 0;
+}
+
+.button {
+    width: 156px;
+    height: 44px;
+    background: #3563e9;
+    border-radius: 4px;
+    padding: 0px 20px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #ffffff;
+    cursor: pointer;
+    border: none;
+    outline: none;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.more {
+    position: relative;
+    padding: 64px 0;
 }
