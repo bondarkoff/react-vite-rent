@@ -1,15 +1,15 @@
 // TODO:
-// 1 - написать destinationSwitch необходимую логику.
-// 2 - Создать json файл на сервере с данными для карточек.
-// 3 - Добавить карточки с сервера в проект (mockapi или json-server).
-// 4 - Сверстать карточки и вывести их на страницу, застилизовать их.
-// 5 - Сделать поиск по названию модели машины.
-// 6 - Думать что делать дальше
+// 1. Добавить карточки машин в базу данных (mockAPI)
+// 2. Добавить базу данных в проект
+// 3. Добавить запросы к базе данных
+// 4. Добавить получение данных из базы данных
+// 5. Добавить отображение данных из базы данных
 
 import React from 'react';
-import Header from './components/ui/header';
+import Header from './components/UI/header';
 import MainCarCard from './components/mainCarCard/MainCarCard';
 import DestinationSwitch from './components/destinationSwitch/DestinationSwitch';
+import CarCard from './components/carCard/CarCard';
 
 function App() {
     return (
@@ -18,6 +18,7 @@ function App() {
             <div className='container'>
                 <MainCarCard />
                 <DestinationSwitch />
+                <CarCard />
             </div>
         </>
     );

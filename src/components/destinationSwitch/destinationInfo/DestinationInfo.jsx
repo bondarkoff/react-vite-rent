@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../DestinationSwitch.module.scss';
+import styles from './DestinationInfo.module.scss';
 
 const DestinationInfo = () => {
     return (
