@@ -22,10 +22,21 @@
 }
 
 .title {
+    display: flex;
+    justify-content: space-between;
     font-weight: 700;
     font-size: 20px;
     line-height: 25px;
     color: #1a202c;
+}
+
+.favorite {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    border: none;
+    outline: none;
+    background: none;
 }
 
 .body {

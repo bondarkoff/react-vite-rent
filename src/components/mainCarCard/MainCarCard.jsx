@@ -14,7 +14,7 @@ const MainCarCard = () => {
                         price.
                     </div>
                     <button className={styles.button}>Rental Car</button>
-                    <img className={styles.photo} src='./images/cars/car_1.png' alt='Car' />
+                    <img className={styles.photo} src='./images/cars/bg_1.png' alt='Car' />
                 </div>
             </div>
             <div className={styles.secondCard}>
@@ -27,7 +27,7 @@ const MainCarCard = () => {
                         facilities.
                     </div>
                     <button className={styles.secondButton}>Rental Car</button>
-                    <img className={styles.photo} src='./images/cars/car_2.png' alt='Car' />
+                    <img className={styles.photo} src='./images/cars/bg_2.png' alt='Car' />
                 </div>
             </div>
         </div>

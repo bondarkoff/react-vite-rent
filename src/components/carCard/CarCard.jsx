@@ -6,7 +6,12 @@ import styles from './CarCard.module.scss';
 function CarCard({ title, price, imageUrl, gearbox, fuelTank, body, capacity }) {
     return (
         <div className={styles.card}>
-            <h2 className={styles.title}>{title}</h2>
+            <h2 className={styles.title}>
+                <p>{title}</p>
+                <button className={styles.favorite}>
+                    <img src='./images/unlike.svg' alt='To Favorite' />
+                </button>
+            </h2>
             <div className={styles.body}>{body}</div>
             <div className='d-flex aic jcc pos-r'>
                 <img className='mt-50' src={imageUrl} alt='Car' />
@@ -21,7 +26,7 @@ function CarCard({ title, price, imageUrl, gearbox, fuelTank, body, capacity }) 
                         src='./images/gas-station.svg'
                         alt='FuelTank'
                     />
-                    <p className={styles.carDetails}>{fuelTank}</p>
+                    <p className={styles.carDetails}>{fuelTank}L</p>
                 </div>
                 <div className='d-flex aic jcc tac'>
                     <img

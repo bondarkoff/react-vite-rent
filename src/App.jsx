@@ -7,6 +7,7 @@ import CarCard from './components/carCard/CarCard';
 
 function App() {
     const [items, setItems] = React.useState([]);
+    const [popular, setPopular] = React.useState([]);
 
     React.useEffect(() => {
         async function fetchData() {
@@ -14,8 +15,12 @@ function App() {
                 const [itemsResponse] = await Promise.all([
                     axios.get('https://643a8ef1bd3623f1b9b619da.mockapi.io/items'),
                 ]);
+                const [popularResponse] = await Promise.all([
+                    axios.get('https://643a8ef1bd3623f1b9b619da.mockapi.io/popular'),
+                ]);
+
+                setPopular(popularResponse.data);
                 setItems(itemsResponse.data);
-                console.log(itemsResponse.data);
             } catch (error) {
                 alert('Ошибка при запросе данных');
                 console.error(error);
@@ -31,7 +36,22 @@ function App() {
                 <MainCarCard />
                 <DestinationSwitch />
                 <div className='mt-46'>
-                    <h2 className='title'>Recommendation Car</h2>
+                    <h2 className='title'>Popular Car</h2>
+                    <div className='carCards mt-20'>
+                        {popular.map(item => (
+                            <CarCard
+                                title={item.title}
+                                key={item.id}
+                                price={item.price}
+                                imageUrl={item.imageUrl}
+                                capacity={item.capacity}
+                                body={item.body}
+                                fuelTank={item.fuelTank}
+                                gearbox={item.gearbox}
+                            />
+                        ))}
+                    </div>
+                    <h2 className='title mt-42'>Recommendation Car</h2>
                     <div className='carCards mt-20'>
                         {items.map(item => (
                             <CarCard
