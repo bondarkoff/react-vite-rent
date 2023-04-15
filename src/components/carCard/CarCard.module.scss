@@ -1,0 +1,73 @@
+.card {
+    max-width: 304px;
+    max-height: 388px;
+    padding: 24px;
+    background: #ffffff;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.carInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.carDetails {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #90a3bf;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    color: #1a202c;
+}
+
+.body {
+    margin-top: 4px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #90a3bf;
+}
+
+.blur {
+    position: absolute;
+    width: 113%;
+    height: 33%;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 100%);
+}
+
+.price {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    color: #1a202c;
+    span {
+        font-size: 14px;
+        line-height: 18px;
+        color: #90a3bf;
+    }
+}
+
+.button {
+    width: 116px;
+    height: 44px;
+    padding: 0px 20px;
+    background: #3563e9;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #ffffff;
+}
