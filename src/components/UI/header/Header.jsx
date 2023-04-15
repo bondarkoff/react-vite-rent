@@ -1,15 +1,17 @@
 import React from 'react';
 import styles from './header.module.scss';
 
+import { Link } from 'react-router-dom';
+
 const Header = () => {
     return (
         <header>
             <div className='container'>
                 <div className='d-flex flex-row jcsb aic'>
                     <div className='d-flex jcsb'>
-                        <a href='#' className={styles.logotype}>
+                        <Link to='/' className={styles.logotype}>
                             MORENT
-                        </a>
+                        </Link>
                         <div action='#' className='pos-r'>
                             <img
                                 className={styles.search_icon}
@@ -34,28 +36,28 @@ const Header = () => {
                         </div>
                     </div>
                     <div className='d-flex flex-row jcsb aic'>
-                        <a className={styles.user}>
+                        <Link to='/favorite' className={styles.user}>
                             <img width={24} height={24} src='./images/heart.svg' alt='Favorite' />
-                        </a>
-                        <a className={styles.user}>
+                        </Link>
+                        <Link to='/notifications' className={styles.user}>
                             <img
                                 width={24}
                                 height={24}
                                 src='./images/notification.svg'
                                 alt='Notification'
                             />
-                        </a>
-                        <a className={styles.user}>
+                        </Link>
+                        <Link to='/settings' className={styles.user}>
                             <img
                                 width={24}
                                 height={24}
                                 src='./images/settings.svg'
                                 alt='Settings'
                             />
-                        </a>
-                        <a className={styles.user}>
+                        </Link>
+                        <Link to='/profile' className={styles.user}>
                             <img width={24} height={24} src='./images/profile.svg' alt='Profile' />
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
