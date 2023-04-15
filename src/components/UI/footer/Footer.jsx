@@ -54,16 +54,24 @@ const Footer = () => {
                             <div className={styles.socialItemTitle}>Socials</div>
                             <ul className={styles.socialItemLink}>
                                 <li>
-                                    <a href='#'>Discord</a>
+                                    <a href='https://discord.com/' target='_blank'>
+                                        Discord
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href='#'>Instagram</a>
+                                    <a href='https://www.instagram.com/' target='_blank'>
+                                        Instagram
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href='#'>Twitter</a>
+                                    <a href='https://twitter.com/' target='_blank'>
+                                        Twitter
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href='#'>Facebook</a>
+                                    <a href='https://www.facebook.com/' target='_blank'>
+                                        Facebook
+                                    </a>
                                 </li>
                             </ul>
                         </div>
