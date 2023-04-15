@@ -4,6 +4,7 @@ import Favorite from './components/pages/Favorite';
 import Profile from './components/pages/Profile';
 import Settings from './components/pages/Settings';
 import Notifications from './components/pages/Notifications';
+import NotFound from './components/pages/NotFound';
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
             <Route path='settings' exact element={<Settings />} />
             <Route path='profile' exact element={<Profile />} />
             <Route path='notifications' exact element={<Notifications />} />
+            <Route path='*' element={<NotFound />} />
         </Routes>
     );
 }
