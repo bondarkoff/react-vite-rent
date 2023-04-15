@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Footer.module.scss';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -7,9 +8,9 @@ const Footer = () => {
             <div className='container'>
                 <div className='wrapper d-flex jcsb'>
                     <div className='text'>
-                        <a href='#' className={styles.title}>
+                        <Link to='/' className={styles.title}>
                             MORENT
-                        </a>
+                        </Link>
                         <div className={styles.subtitle}>
                             Our vision is to provide convenience<br></br>and help increase your
                             sales business.

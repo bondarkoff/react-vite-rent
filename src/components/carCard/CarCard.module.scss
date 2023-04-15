@@ -68,7 +68,9 @@
 }
 
 .button {
-    width: 116px;
+    align-items: center;
+    display: flex;
+    max-width: 116px;
     height: 44px;
     padding: 0px 20px;
     background: #3563e9;
@@ -76,9 +78,8 @@
     cursor: pointer;
     border: none;
     outline: none;
-
     font-weight: 600;
     font-size: 16px;
     line-height: 20px;
-    color: #ffffff;
+    color: #fff;
 }
