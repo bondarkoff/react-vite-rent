@@ -1,35 +1,13 @@
 import React from 'react';
-import axios from 'axios';
+import Header from '../../UI/header/Header';
+import MainCarCard from '../../mainCarCard/MainCarCard';
+import DestinationSwitch from '../../destinationSwitch/DestinationSwitch';
+import CarCard from '../../carCard/CarCard';
+import Footer from '../../UI/footer/Footer';
 
-import Header from '../UI/header/Header';
-import MainCarCard from '../mainCarCard/MainCarCard';
-import DestinationSwitch from '../destinationSwitch/DestinationSwitch';
-import CarCard from '../carCard/CarCard';
-import Footer from '../UI/footer/Footer';
+import styles from './Home.module.scss';
 
-const Home = () => {
-    const [items, setItems] = React.useState([]);
-    const [popular, setPopular] = React.useState([]);
-
-    React.useEffect(() => {
-        async function fetchData() {
-            try {
-                const [itemsResponse] = await Promise.all([
-                    axios.get('https://643a8ef1bd3623f1b9b619da.mockapi.io/items'),
-                ]);
-                const [popularResponse] = await Promise.all([
-                    axios.get('https://643a8ef1bd3623f1b9b619da.mockapi.io/popular'),
-                ]);
-                setPopular(popularResponse.data);
-                setItems(itemsResponse.data);
-            } catch (error) {
-                alert('Ошибка при запросе данных');
-                console.error(error);
-            }
-        }
-        fetchData();
-    }, []);
-
+const Home = ({ popular, items }) => {
     return (
         <>
             <Header />
@@ -37,8 +15,8 @@ const Home = () => {
                 <MainCarCard />
                 <DestinationSwitch />
                 <div className='mt-46'>
-                    <h2 className='title'>Popular Car</h2>
-                    <div className='carCards mt-20'>
+                    <h2 className={styles.title}>Popular Car</h2>
+                    <div className={styles.carCards}>
                         {popular.map(item => (
                             <CarCard
                                 title={item.title}
@@ -52,8 +30,8 @@ const Home = () => {
                             />
                         ))}
                     </div>
-                    <h2 className='title mt-42'>Recommendation Car</h2>
-                    <div className='carCards mt-20'>
+                    <h2 className={styles.title}>Recommendation Car</h2>
+                    <div className={styles.carCards}>
                         {items.map(item => (
                             <CarCard
                                 title={item.title}
@@ -67,10 +45,10 @@ const Home = () => {
                             />
                         ))}
                     </div>
-                    <div className='more'>
+                    <div className={styles.more}>
                         <div></div>
-                        <button className='button'>Show more car</button>
-                        <div className='count'>{items.length} Car</div>
+                        <button className={styles.button}>Show more car</button>
+                        <div className={styles.count}>{items.length} Car</div>
                     </div>
                 </div>
             </div>
