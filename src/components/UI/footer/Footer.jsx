@@ -82,8 +82,8 @@ const Footer = () => {
                 <div className='d-flex jcsb mt-48'>
                     <div className={styles.rightsText}>©2022 MORENT. All rights reserved</div>
                     <div className={styles.rightsRules}>
-                        <a href='#'>Privacy & Policy</a>
-                        <a href='#'>Terms of Service</a>
+                        <Link to='/privacy'>Privacy & Policy</Link>
+                        <Link to='/terms'>Terms of Service</Link>
                     </div>
                 </div>
             </div>

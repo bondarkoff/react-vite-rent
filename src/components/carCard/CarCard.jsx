@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import Price from './Price';
 
 import styles from './CarCard.module.scss';
-import { Link } from 'react-router-dom';
 
 function CarCard({ title, price, imageUrl, gearbox, fuelTank, body, capacity }) {
     return (
@@ -52,7 +53,7 @@ function CarCard({ title, price, imageUrl, gearbox, fuelTank, body, capacity }) 
             </div>
             <div className='d-flex flex-row aic jcsb mt-20'>
                 <Price price={price}>/day</Price>
-                <Link to={`${title}`} className={styles.button}>
+                <Link to={`/${title}`} className={styles.button}>
                     Rent Now
                 </Link>
             </div>
