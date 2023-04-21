@@ -5,14 +5,38 @@ import Price from './Price';
 
 import styles from './CarCard.module.scss';
 
-function CarCard({ title, price, imageUrl, gearbox, fuelTank, body, capacity }) {
+function CarCard({
+    title,
+    price,
+    imageUrl,
+    gearbox,
+    fuelTank,
+    body,
+    capacity,
+    onFavorite,
+    id,
+    favorited = false,
+}) {
+    const [isFavorite, setIsFavorite] = React.useState(favorited);
+    const obj = { id, parentId: id, imageUrl, title, price, gearbox, fuelTank, capacity, body };
+
+    const onClickFavorite = () => {
+        onFavorite(obj);
+        setIsFavorite(!isFavorite);
+    };
+
     return (
         <div className={styles.card}>
             <h2 className={styles.title}>
                 <p>{title}</p>
-                <button className={styles.favorite}>
-                    <img src='./images/unlike.svg' alt='To Favorite' />
-                </button>
+                {onFavorite && (
+                    <button className={styles.favorite} onClick={onClickFavorite}>
+                        <img
+                            src={isFavorite ? './images/like.svg' : './images/unlike.svg'}
+                            alt='To Favorite'
+                        />
+                    </button>
+                )}
             </h2>
             <div className={styles.body}>{body}</div>
             <div className='d-flex aic jcc pos-r'>

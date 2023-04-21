@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
 import Privacy from './components/pages/privacy/Privacy';
 import Terms from './components/pages/terms/Terms';
+import AppContext from './context';
 
 const Home = lazy(() => import('./components/pages/home/Home'));
 const Favorite = lazy(() => import('./components/pages/favorite/Favorite'));
@@ -15,21 +16,15 @@ const CarDetails = lazy(() => import('./components/pages/carDetails/CarDetails')
 function App() {
     const [items, setItems] = React.useState([]);
     const [favorite, setFavorite] = React.useState([]);
-    const [searchValue, setSearchValue] = React.useState('');
-
-    const onChangeSearchInput = e => {
-        setSearchValue(e.target.value);
-    };
 
     React.useEffect(() => {
         async function fetchData() {
             try {
-                const [itemsResponse] = await Promise.all([
+                const [itemsResponse, favoriteResponse] = await Promise.all([
                     axios.get('https://643a8ef1bd3623f1b9b619da.mockapi.io/items'),
-                ]);
-                const [favoriteResponse] = await Promise.all([
                     axios.get('https://643a8ef1bd3623f1b9b619da.mockapi.io/favorites'),
                 ]);
+
                 setFavorite(favoriteResponse.data);
                 setItems(itemsResponse.data);
             } catch (error) {
@@ -40,32 +35,50 @@ function App() {
         fetchData();
     }, []);
 
+    const onAddToFavorite = async obj => {
+        try {
+            if (favorite.find(favObj => Number(favObj.id) === Number(obj.id))) {
+                axios.delete(`https://643a8ef1bd3623f1b9b619da.mockapi.io/favorites/${obj.id}`);
+                setFavorite(prev => prev.filter(item => Number(item.id) !== Number(obj.id)));
+            } else {
+                const { data } = await axios.post(
+                    'https://643a8ef1bd3623f1b9b619da.mockapi.io/favorites',
+                    obj,
+                );
+                setFavorite(prev => [...prev, data]);
+            }
+        } catch (error) {
+            alert('Не удалось добавить в закладки.');
+            console.error(error);
+        }
+    };
+
     return (
-        <Suspense>
-            <Routes>
-                <Route
-                    path='/'
-                    exact
-                    element={
-                        <Home
-                            items={items}
-                            favorite={favorite}
-                            searchValue={searchValue}
-                            setSearchValue={setSearchValue}
-                            onChangeSearchInput={onChangeSearchInput}
-                        />
-                    }
-                />
-                <Route path='/' exact element={<CarDetails items={items} />} />
-                <Route path='/favorite' exact element={<Favorite />} />
-                <Route path='/settings' exact element={<Settings />} />
-                <Route path='/profile' exact element={<Profile />} />
-                <Route path='/notifications' exact element={<Notifications />} />
-                <Route path='/privacy' exact element={<Privacy />} />
-                <Route path='/terms' exact element={<Terms />} />
-                <Route path='*' element={<NotFound />} />
-            </Routes>
-        </Suspense>
+        <AppContext.Provider value={{ items, favorite, onAddToFavorite }}>
+            <Suspense>
+                <Routes>
+                    <Route
+                        path='/'
+                        exact
+                        element={
+                            <Home
+                                items={items}
+                                favorite={favorite}
+                                onAddToFavorite={onAddToFavorite}
+                            />
+                        }
+                    />
+                    <Route path='/' exact element={<CarDetails items={items} />} />
+                    <Route path='/favorite' exact element={<Favorite items={favorite} />} />
+                    <Route path='/settings' exact element={<Settings />} />
+                    <Route path='/profile' exact element={<Profile />} />
+                    <Route path='/notifications' exact element={<Notifications />} />
+                    <Route path='/privacy' exact element={<Privacy />} />
+                    <Route path='/terms' exact element={<Terms />} />
+                    <Route path='*' element={<NotFound />} />
+                </Routes>
+            </Suspense>
+        </AppContext.Provider>
     );
 }
 

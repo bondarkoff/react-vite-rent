@@ -7,7 +7,7 @@ import Footer from '../../UI/footer/Footer';
 
 import styles from './Home.module.scss';
 
-const Home = ({ items }) => {
+const Home = ({ items, onAddToFavorite }) => {
     const [displayedItems, setDisplayedItems] = React.useState(8);
     const [allItemsLoaded, setAllItemsLoaded] = React.useState(false);
 
@@ -38,6 +38,7 @@ const Home = ({ items }) => {
                                 body={item.body}
                                 fuelTank={item.fuelTank}
                                 gearbox={item.gearbox}
+                                onFavorite={obj => onAddToFavorite(obj)}
                             />
                         ))}
                     </div>
