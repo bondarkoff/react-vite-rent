@@ -7,7 +7,7 @@ import Footer from '../../UI/footer/Footer';
 
 import styles from './Home.module.scss';
 
-const Home = ({ popular, items }) => {
+const Home = ({ items }) => {
     const [displayedItems, setDisplayedItems] = React.useState(8);
     const [allItemsLoaded, setAllItemsLoaded] = React.useState(false);
 
@@ -26,21 +26,6 @@ const Home = ({ popular, items }) => {
                 <MainCarCard />
                 <DestinationSwitch />
                 <div className='mt-46'>
-                    <h2 className={styles.title}>Popular Car</h2>
-                    <div className={styles.carCards}>
-                        {popular.map(item => (
-                            <CarCard
-                                title={item.title}
-                                key={item.id}
-                                price={item.price}
-                                imageUrl={item.imageUrl}
-                                capacity={item.capacity}
-                                body={item.body}
-                                fuelTank={item.fuelTank}
-                                gearbox={item.gearbox}
-                            />
-                        ))}
-                    </div>
                     <h2 className={styles.title}>Recommendation Car</h2>
                     <div className={styles.carCards}>
                         {items.slice(0, displayedItems).map(item => (

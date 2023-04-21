@@ -14,7 +14,7 @@ const CarDetails = lazy(() => import('./components/pages/carDetails/CarDetails')
 
 function App() {
     const [items, setItems] = React.useState([]);
-    const [popular, setPopular] = React.useState([]);
+    const [favorite, setFavorite] = React.useState([]);
     const [searchValue, setSearchValue] = React.useState('');
 
     const onChangeSearchInput = e => {
@@ -27,10 +27,10 @@ function App() {
                 const [itemsResponse] = await Promise.all([
                     axios.get('https://643a8ef1bd3623f1b9b619da.mockapi.io/items'),
                 ]);
-                const [popularResponse] = await Promise.all([
-                    axios.get('https://643a8ef1bd3623f1b9b619da.mockapi.io/popular'),
+                const [favoriteResponse] = await Promise.all([
+                    axios.get('https://643a8ef1bd3623f1b9b619da.mockapi.io/favorites'),
                 ]);
-                setPopular(popularResponse.data);
+                setFavorite(favoriteResponse.data);
                 setItems(itemsResponse.data);
             } catch (error) {
                 alert('Ошибка при запросе данных');
@@ -49,7 +49,7 @@ function App() {
                     element={
                         <Home
                             items={items}
-                            popular={popular}
+                            favorite={favorite}
                             searchValue={searchValue}
                             setSearchValue={setSearchValue}
                             onChangeSearchInput={onChangeSearchInput}
