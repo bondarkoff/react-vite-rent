@@ -42,6 +42,13 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    &:disabled {
+        background: #90a3bf;
+        cursor: not-allowed;
+    }
+    &:active {
+        background: #2a4db7;
+    }
 }
 
 .more {
