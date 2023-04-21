@@ -13,16 +13,22 @@ const Favorite = () => {
         <>
             <Header />
             <div className='container'>
-                <h2 className='mt-46'>Favorite Cars</h2>
-                <div className={styles.favoriteCard}>
-                    {favorite.map((item, index) => (
-                        <CarCard
-                            key={index}
-                            favorited={true}
-                            onFavorite={onAddToFavorite}
-                            {...item}
-                        />
-                    ))}
+                <div className={styles.favorite}>
+                    <h2 className='mt-46'>Favorite Cars</h2>
+                    <div className={styles.favoriteCard}>
+                        {favorite.length <= 0 ? (
+                            <div>You don't have favorite cars, add some..</div>
+                        ) : (
+                            favorite.map((item, index) => (
+                                <CarCard
+                                    key={index}
+                                    favorited={true}
+                                    onFavorite={onAddToFavorite}
+                                    {...item}
+                                />
+                            ))
+                        )}
+                    </div>
                 </div>
             </div>
             <Footer />

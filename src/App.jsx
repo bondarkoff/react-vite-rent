@@ -28,7 +28,7 @@ function App() {
                 setFavorite(favoriteResponse.data);
                 setItems(itemsResponse.data);
             } catch (error) {
-                alert('Ошибка при запросе данных');
+                alert('Error while loading data');
                 console.error(error);
             }
         }
@@ -48,7 +48,7 @@ function App() {
                 setFavorite(prev => [...prev, data]);
             }
         } catch (error) {
-            alert('Не удалось добавить в закладки.');
+            alert('Error while adding to favorite');
             console.error(error);
         }
     };
