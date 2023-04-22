@@ -19,6 +19,7 @@ import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
 import AppContext from './context';
 import Filter from './components/filter/Filter';
+import ScrollToTop from './components/ScrollToTop';
 
 const Home = lazy(() => import('./components/pages/home/Home'));
 const Favorite = lazy(() => import('./components/pages/favorite/Favorite'));
@@ -83,6 +84,7 @@ function App() {
     return (
         <AppContext.Provider value={{ items, favorite, onAddToFavorite }}>
             <Suspense>
+                <ScrollToTop />
                 {showFilter && <Filter />}
                 <Routes>
                     <Route
@@ -107,7 +109,7 @@ function App() {
                     <Route path='/notifications' exact element={<Notifications />} />
                     <Route path='/privacy' exact element={<Privacy />} />
                     <Route path='/terms' exact element={<Terms />} />
-                    <Route path='*' element={<NotFound />} />
+                    <Route ScrollRestoration path='*' element={<NotFound />} />
                 </Routes>
             </Suspense>
         </AppContext.Provider>
