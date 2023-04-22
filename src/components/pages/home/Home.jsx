@@ -36,6 +36,7 @@ const Home = ({
                 <CarCard
                     title={item.title}
                     key={item.id}
+                    id={item.id}
                     price={item.price}
                     imageUrl={item.imageUrl}
                     capacity={item.capacity}

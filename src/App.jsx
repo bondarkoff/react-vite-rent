@@ -99,7 +99,7 @@ function App() {
                             />
                         }
                     />
-                    <Route path='/' exact element={<CarDetails items={items} />} />
+                    <Route path='/:id' exact element={<CarDetails items={items} />} />
                     <Route path='/favorite' exact element={<Favorite items={favorite} />} />
                     <Route path='/settings' exact element={<Settings />} />
                     <Route path='/profile' exact element={<Profile />} />
