@@ -57,21 +57,25 @@
 
 .feature {
     margin-top: 32px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 245px);
+    grid-template-rows: repeat(2, 28px);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
 }
 
 .featureItem {
+    position: relative;
     font-weight: 400;
     font-size: 20px;
     line-height: 25px;
     letter-spacing: -0.02em;
     color: #90a3bf;
-    margin-right: 46px;
     span {
-        margin-left: 16px;
+        right: 0;
+        position: absolute;
         color: #3d5278;
+        margin-right: 42px;
     }
 }
 
@@ -79,38 +83,26 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 68px;
-}
-
-.reviews {
-    margin-top: 32px;
-    background: #ffffff;
-    border-radius: 10px;
-    padding: 24px;
-}
-
-.reviewsWrapper {
-    display: flex;
-    flex-direction: row;
+    margin-top: 35px;
     align-items: center;
 }
 
-.reviewsTitle {
-    margin-right: 12px;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 25px;
-    color: #1a202c;
-}
-
-.reviewsCount {
-    padding: 6px 16px;
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    width: 140px;
+    height: 56px;
     background: #3563e9;
     border-radius: 4px;
     font-weight: 700;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 16px;
+    line-height: 20px;
     color: #ffffff;
-    align-items: center;
-    text-align: center;
+    cursor: pointer;
+    &:hover {
+        background: #2c4eb8;
+    }
 }

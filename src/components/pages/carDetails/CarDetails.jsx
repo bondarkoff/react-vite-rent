@@ -4,8 +4,9 @@ import Header from '../../UI/header/Header';
 import Footer from '../../UI/footer/Footer';
 
 import styles from './CarDetails.module.scss';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Price from '../../carCard/Price';
+import Reviews from './reviews/Reviews';
 
 const CarDetails = () => {
     const { id } = useParams();
@@ -26,8 +27,6 @@ const CarDetails = () => {
         fetchData();
     }, []);
 
-    // getCar();
-
     const View = ({ car }) => {
         const { title, price, imageUrl, capacity, body, fuelTank, gearbox } = car;
         return (
@@ -45,6 +44,7 @@ const CarDetails = () => {
                         </div>
                         <div className={styles.right}>
                             <div className={styles.title}>{title}</div>
+                            <div className=''>rating</div>
                             <div className={styles.descr}>
                                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque
                                 ratione sapiente est pariatur placeat. Eaque porro corporis, iusto
@@ -67,18 +67,14 @@ const CarDetails = () => {
                             </div>
                             <div className={styles.detailsBottom}>
                                 <Price price={price} />
-                                <button className={styles.button}>Rent Now</button>
+                                <Link to='/' className={styles.button}>
+                                    Rent Now
+                                </Link>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div className={styles.reviews}>
-                    <div className={styles.reviewsWrapper}>
-                        <div className={styles.reviewsTitle}>Reviews</div>
-                        <div className={styles.reviewsCount}>2</div>
-                    </div>
-                </div>
+                <Reviews />
             </div>
         );
     };
