@@ -7,7 +7,14 @@ import Footer from '../../UI/footer/Footer';
 
 import styles from './Home.module.scss';
 
-const Home = ({ items, onAddToFavorite, onChangeSearchInput, searchValue, setSearchValue }) => {
+const Home = ({
+    items,
+    onAddToFavorite,
+    onChangeSearchInput,
+    searchValue,
+    setSearchValue,
+    handleButtonClick,
+}) => {
     const [displayedItems, setDisplayedItems] = React.useState(8);
     const [allItemsLoaded, setAllItemsLoaded] = React.useState(false);
 
@@ -23,19 +30,21 @@ const Home = ({ items, onAddToFavorite, onChangeSearchInput, searchValue, setSea
         const filterItems = items.filter(item =>
             item.title.toLowerCase().includes(searchValue.toLowerCase()),
         );
-        return filterItems.map(item => (
-            <CarCard
-                title={item.title}
-                key={item.id}
-                price={item.price}
-                imageUrl={item.imageUrl}
-                capacity={item.capacity}
-                body={item.body}
-                fuelTank={item.fuelTank}
-                gearbox={item.gearbox}
-                onFavorite={obj => onAddToFavorite(obj)}
-            />
-        ));
+        return filterItems
+            .slice(0, displayedItems)
+            .map(item => (
+                <CarCard
+                    title={item.title}
+                    key={item.id}
+                    price={item.price}
+                    imageUrl={item.imageUrl}
+                    capacity={item.capacity}
+                    body={item.body}
+                    fuelTank={item.fuelTank}
+                    gearbox={item.gearbox}
+                    onFavorite={obj => onAddToFavorite(obj)}
+                />
+            ));
     };
 
     return (
@@ -44,6 +53,7 @@ const Home = ({ items, onAddToFavorite, onChangeSearchInput, searchValue, setSea
                 onChangeSearchInput={onChangeSearchInput}
                 searchValue={searchValue}
                 setSearchValue={setSearchValue}
+                handleButtonClick={handleButtonClick}
             />
             <div className='container'>
                 {searchValue ? null : (

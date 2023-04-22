@@ -1,6 +1,5 @@
 // TODO:
 // -- Функционал:
-// - Реализовать поиск по названию автомобиля
 // - Реализовать фильтрацию как в макете
 // - Реализовать страницу автомобиля
 // - Добавить и настроить реакт.скелетон (и лоадеры если надо)
@@ -17,9 +16,8 @@
 import React, { lazy, Suspense } from 'react';
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
-import Privacy from './components/pages/privacy/Privacy';
-import Terms from './components/pages/terms/Terms';
 import AppContext from './context';
+import Filter from './components/filter/Filter';
 
 const Home = lazy(() => import('./components/pages/home/Home'));
 const Favorite = lazy(() => import('./components/pages/favorite/Favorite'));
@@ -28,11 +26,14 @@ const Profile = lazy(() => import('./components/pages/profile/Profile'));
 const Notifications = lazy(() => import('./components/pages/notifications/Notifications'));
 const NotFound = lazy(() => import('./components/pages/notFound/NotFound'));
 const CarDetails = lazy(() => import('./components/pages/carDetails/CarDetails'));
+const Terms = lazy(() => import('./components/pages/terms/Terms'));
+const Privacy = lazy(() => import('./components/pages/privacy/Privacy'));
 
 function App() {
     const [items, setItems] = React.useState([]);
     const [favorite, setFavorite] = React.useState([]);
     const [searchValue, setSearchValue] = React.useState('');
+    const [showFilter, setShowFilter] = React.useState(false);
 
     React.useEffect(() => {
         async function fetchData() {
@@ -74,9 +75,14 @@ function App() {
         setSearchValue(event.target.value);
     };
 
+    const handleButtonClick = () => {
+        setShowFilter(!showFilter);
+    };
+
     return (
         <AppContext.Provider value={{ items, favorite, onAddToFavorite }}>
             <Suspense>
+                {showFilter && <Filter />}
                 <Routes>
                     <Route
                         path='/'
@@ -89,6 +95,7 @@ function App() {
                                 onChangeSearchInput={onChangeSearchInput}
                                 searchValue={searchValue}
                                 setSearchValue={setSearchValue}
+                                handleButtonClick={handleButtonClick}
                             />
                         }
                     />

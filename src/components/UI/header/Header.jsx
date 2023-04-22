@@ -3,7 +3,7 @@ import styles from './header.module.scss';
 
 import { Link } from 'react-router-dom';
 
-const Header = ({ searchValue, setSearchValue, onChangeSearchInput }) => {
+const Header = ({ searchValue, setSearchValue, onChangeSearchInput, handleButtonClick }) => {
     return (
         <header>
             <div className='container'>
@@ -27,6 +27,7 @@ const Header = ({ searchValue, setSearchValue, onChangeSearchInput }) => {
                                 className={styles.search}
                                 onChange={onChangeSearchInput}
                                 value={searchValue}
+                                autoComplete='off'
                             />
                             {searchValue ? (
                                 <img
@@ -44,6 +45,8 @@ const Header = ({ searchValue, setSearchValue, onChangeSearchInput }) => {
                                     height={24}
                                     src='./images/filter.svg'
                                     alt='Filter'
+                                    id='filter'
+                                    onClick={handleButtonClick}
                                 />
                             )}
                         </div>
