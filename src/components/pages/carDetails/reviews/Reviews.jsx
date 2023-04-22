@@ -4,7 +4,7 @@ import styles from './Reviews.module.scss';
 import { reviews } from './Reviews.data';
 import Stars from './Stars';
 
-const Reviews = ({ stars }) => {
+const Reviews = () => {
     const [displayedItems, setDisplayedItems] = React.useState(2);
     const [allItemsLoaded, setAllItemsLoaded] = React.useState(false);
 

@@ -1,16 +1,30 @@
 import React, { useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
+
 import Header from '../../UI/header/Header';
 import Footer from '../../UI/footer/Footer';
-
-import styles from './CarDetails.module.scss';
-import { Link, useParams } from 'react-router-dom';
 import Price from '../../carCard/Price';
 import Reviews from './reviews/Reviews';
+import Stars from './reviews/Stars';
+import { reviews } from './reviews/Reviews.data';
 
-const CarDetails = () => {
+import styles from './CarDetails.module.scss';
+
+const CarDetails = ({ onFavorite, favorited = false }) => {
     const { id } = useParams();
     const [car, setCar] = React.useState([null]);
+    const [isFavorite, setIsFavorite] = React.useState(favorited);
+    const obj = { id, parentId: id, imageUrl: car.imageUrl, title: car.title, price: car.price };
+
+    const avgRating = Math.round(
+        reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length,
+    );
+
+    const onClickFavorite = () => {
+        onFavorite(obj);
+        setIsFavorite(!isFavorite);
+    };
 
     useEffect(() => {
         async function fetchData() {
@@ -35,16 +49,35 @@ const CarDetails = () => {
                     <div className='d-flex flex-row jcc mt-32'>
                         <div className={styles.left}>
                             <div className={styles.leftTitle}>
-                                Sports car with the best design and acceleration
+                                Cars with the best design and acceleration
                             </div>
                             <div className={styles.leftSubtitle}>
-                                Safety and comfort while driving a futuristic and elegant sports car
+                                Safety and comfort while driving a futuristic and elegant cars
                             </div>
                             <img className={styles.image} src={imageUrl} alt={title} />
                         </div>
                         <div className={styles.right}>
-                            <div className={styles.title}>{title}</div>
-                            <div className=''>rating</div>
+                            <div className='d-flex jcsb aic'>
+                                <div className={styles.title}>{title}</div>
+                                {onFavorite && (
+                                    <button className={styles.favorite} onClick={onClickFavorite}>
+                                        <img
+                                            src={
+                                                isFavorite
+                                                    ? './images/like.svg'
+                                                    : './images/unlike.svg'
+                                            }
+                                            width={24}
+                                            height={24}
+                                            alt='To Favorite'
+                                        />
+                                    </button>
+                                )}
+                            </div>
+                            <div className='d-flex flex-row aic tac '>
+                                <Stars className rating={avgRating} />
+                                <p className='ml-8'>{reviews.length} Reviewer</p>
+                            </div>
                             <div className={styles.descr}>
                                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque
                                 ratione sapiente est pariatur placeat. Eaque porro corporis, iusto
@@ -56,7 +89,7 @@ const CarDetails = () => {
                                     Type Car <span>{body}</span>
                                 </div>
                                 <div className={styles.featureItem}>
-                                    Capacity <span>{capacity}</span>
+                                    Capacity <span>{capacity} Person</span>
                                 </div>
                                 <div className={styles.featureItem}>
                                     Gearbox <span>{gearbox}</span>
@@ -74,7 +107,7 @@ const CarDetails = () => {
                         </div>
                     </div>
                 </div>
-                <Reviews />
+                <Reviews rating={avgRating} />
             </div>
         );
     };
