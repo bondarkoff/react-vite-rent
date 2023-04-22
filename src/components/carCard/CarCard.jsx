@@ -77,7 +77,7 @@ function CarCard({
             </div>
             <div className='d-flex flex-row aic jcsb mt-20'>
                 <Price price={price}>/day</Price>
-                <Link to={`/${id}`} className={styles.button}>
+                <Link price={price} to={`/${id}`} className={styles.button}>
                     Rent Now
                 </Link>
             </div>

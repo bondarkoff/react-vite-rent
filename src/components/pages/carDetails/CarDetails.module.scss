@@ -1,3 +1,116 @@
-.carDetails {
-    height: 600px;
+.right {
+    width: 492px;
+    height: 508px;
+    padding: 24px 24px 32px 24px;
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.left {
+    margin-right: 32px;
+    position: relative;
+    padding: 24px;
+    border-radius: 10px;
+    width: 492px;
+    height: 360px;
+    background: #3563e9;
+    background-image: url('./images/BG2.png') !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.leftTitle {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 38px;
+    color: #ffffff;
+}
+
+.leftSubtitle {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;
+    color: #ffffff;
+}
+
+.image {
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%) scale(2);
+}
+
+.title {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 45px;
+    color: #1a202c;
+}
+
+.descr {
+    margin-top: 64px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 40px;
+    color: #3d5278;
+}
+
+.feature {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.featureItem {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: -0.02em;
+    color: #90a3bf;
+    margin-right: 46px;
+    span {
+        margin-left: 16px;
+        color: #3d5278;
+    }
+}
+
+.detailsBottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 68px;
+}
+
+.reviews {
+    margin-top: 32px;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 24px;
+}
+
+.reviewsWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.reviewsTitle {
+    margin-right: 12px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+    color: #1a202c;
+}
+
+.reviewsCount {
+    padding: 6px 16px;
+    background: #3563e9;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    color: #ffffff;
+    align-items: center;
+    text-align: center;
 }
