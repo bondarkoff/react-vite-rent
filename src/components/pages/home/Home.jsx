@@ -7,7 +7,7 @@ import Footer from '../../UI/footer/Footer';
 
 import styles from './Home.module.scss';
 
-const Home = ({ items, onAddToFavorite }) => {
+const Home = ({ items, onAddToFavorite, onChangeSearchInput, searchValue, setSearchValue }) => {
     const [displayedItems, setDisplayedItems] = React.useState(8);
     const [allItemsLoaded, setAllItemsLoaded] = React.useState(false);
 
@@ -19,29 +19,44 @@ const Home = ({ items, onAddToFavorite }) => {
         setDisplayedItems(displayedItems + 8);
     };
 
+    const renderItems = () => {
+        const filterItems = items.filter(item =>
+            item.title.toLowerCase().includes(searchValue.toLowerCase()),
+        );
+        return filterItems.map(item => (
+            <CarCard
+                title={item.title}
+                key={item.id}
+                price={item.price}
+                imageUrl={item.imageUrl}
+                capacity={item.capacity}
+                body={item.body}
+                fuelTank={item.fuelTank}
+                gearbox={item.gearbox}
+                onFavorite={obj => onAddToFavorite(obj)}
+            />
+        ));
+    };
+
     return (
         <>
-            <Header />
+            <Header
+                onChangeSearchInput={onChangeSearchInput}
+                searchValue={searchValue}
+                setSearchValue={setSearchValue}
+            />
             <div className='container'>
-                <MainCarCard />
-                <DestinationSwitch />
+                {searchValue ? null : (
+                    <>
+                        <MainCarCard />
+                        <DestinationSwitch />
+                    </>
+                )}
                 <div className='mt-46'>
-                    <h2 className={styles.title}>Recommendation Car</h2>
-                    <div className={styles.carCards}>
-                        {items.slice(0, displayedItems).map(item => (
-                            <CarCard
-                                title={item.title}
-                                key={item.id}
-                                price={item.price}
-                                imageUrl={item.imageUrl}
-                                capacity={item.capacity}
-                                body={item.body}
-                                fuelTank={item.fuelTank}
-                                gearbox={item.gearbox}
-                                onFavorite={obj => onAddToFavorite(obj)}
-                            />
-                        ))}
-                    </div>
+                    <h2 className={styles.title}>
+                        {searchValue ? `Search by request: "${searchValue}"` : 'All cars'}
+                    </h2>
+                    <div className={styles.carCards}>{renderItems()}</div>
                     <div className={styles.more}>
                         <div></div>
                         <button

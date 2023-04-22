@@ -3,7 +3,7 @@ import styles from './header.module.scss';
 
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({ searchValue, setSearchValue, onChangeSearchInput }) => {
     return (
         <header>
             <div className='container'>
@@ -25,14 +25,27 @@ const Header = () => {
                                 name='search'
                                 placeholder='Search something here'
                                 className={styles.search}
+                                onChange={onChangeSearchInput}
+                                value={searchValue}
                             />
-                            <img
-                                className={styles.filter_icon}
-                                width={24}
-                                height={24}
-                                src='./images/filter.svg'
-                                alt='Filter'
-                            />
+                            {searchValue ? (
+                                <img
+                                    className={styles.filter_icon}
+                                    width={24}
+                                    height={24}
+                                    src='./images/close.svg'
+                                    alt='Close'
+                                    onClick={() => setSearchValue('')}
+                                />
+                            ) : (
+                                <img
+                                    className={styles.filter_icon}
+                                    width={24}
+                                    height={24}
+                                    src='./images/filter.svg'
+                                    alt='Filter'
+                                />
+                            )}
                         </div>
                     </div>
                     <div className='d-flex flex-row jcsb aic'>

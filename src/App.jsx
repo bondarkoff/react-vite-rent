@@ -1,3 +1,19 @@
+// TODO:
+// -- Функционал:
+// - Реализовать поиск по названию автомобиля
+// - Реализовать фильтрацию как в макете
+// - Реализовать страницу автомобиля
+// - Добавить и настроить реакт.скелетон (и лоадеры если надо)
+// - Добавить и настроить реакт.хелмет
+// - Пофиксить все баги
+// - Добавить фавиконку
+// - Добавить ховер эффекты, транзишены, анимации где надо
+// - Добавить адаптивность
+// -- В последнюю очередь:
+// - Переписать scss со вложеностью
+// - Переименовать .jsx в .js
+// - Переименовать все папки в PascalCase?
+// - Деплой?
 import React, { lazy, Suspense } from 'react';
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
@@ -16,6 +32,7 @@ const CarDetails = lazy(() => import('./components/pages/carDetails/CarDetails')
 function App() {
     const [items, setItems] = React.useState([]);
     const [favorite, setFavorite] = React.useState([]);
+    const [searchValue, setSearchValue] = React.useState('');
 
     React.useEffect(() => {
         async function fetchData() {
@@ -53,6 +70,10 @@ function App() {
         }
     };
 
+    const onChangeSearchInput = event => {
+        setSearchValue(event.target.value);
+    };
+
     return (
         <AppContext.Provider value={{ items, favorite, onAddToFavorite }}>
             <Suspense>
@@ -65,6 +86,9 @@ function App() {
                                 items={items}
                                 favorite={favorite}
                                 onAddToFavorite={onAddToFavorite}
+                                onChangeSearchInput={onChangeSearchInput}
+                                searchValue={searchValue}
+                                setSearchValue={setSearchValue}
                             />
                         }
                     />
