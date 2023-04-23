@@ -1,0 +1,168 @@
+.order {
+    margin: 32px 0;
+}
+
+.billing {
+    max-width: 825px;
+    margin-top: 32px;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 24px;
+    &:first-child {
+        margin-top: 0;
+    }
+}
+
+.billingTitle {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    color: #1a202c;
+}
+
+.billingSubtitle,
+.billingStep {
+    margin-top: 4px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #90a3bf;
+}
+
+.billingStep {
+    margin-top: 0px;
+}
+
+.billingInfo {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(2, 386px);
+    grid-template-rows: repeat(2, 92px);
+    grid-column-gap: 32px;
+    grid-row-gap: 32px;
+}
+
+.billingInfoTitle {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #1a202c;
+}
+
+.billingInput,
+.paymentInput,
+.city,
+.date,
+.time {
+    margin-top: 16px;
+    padding: 16px 195px 16px 32px;
+    border: none;
+    outline: none;
+    background: #f6f7f9;
+    border-radius: 10px;
+}
+
+.bigDot,
+.bigSecondDot {
+    margin-top: 32px;
+    position: relative;
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    background: rgba(53, 99, 233, 0.3);
+    border-radius: 70px;
+}
+
+.bigSecondDot {
+    background: rgba(92, 175, 252, 0.3);
+}
+
+.smallDot,
+.smallSecondDot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #3563e9;
+    border-radius: 70px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.smallSecondDot {
+    background: #5caffc;
+}
+
+.title {
+    margin-top: 32px;
+}
+
+.confirmation {
+    margin-top: 24px;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    background: #f6f7f9;
+    border-radius: 10px;
+    label {
+        margin-left: 20px;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+        color: #1f2544;
+    }
+}
+
+input[type='checkbox'] {
+    margin: 0;
+}
+
+.link {
+    text-decoration: underline;
+    color: #1f2544;
+}
+
+.button {
+    margin-top: 48px;
+    padding: 16px 32px;
+    border: none;
+    outline: none;
+    background: #3563e9;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.payment {
+    max-width: 804px;
+    margin-top: 32px;
+    background: #f6f7f9;
+    border-radius: 10px;
+}
+
+.paymentInput {
+    padding: 16px 150px 16px 32px;
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.city,
+.time,
+.date {
+    width: 386px;
+    padding: 16px;
+}
+
+.time {
+    width: 353px;
+}
+
+fieldset {
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}

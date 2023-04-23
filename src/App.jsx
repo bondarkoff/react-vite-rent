@@ -1,7 +1,6 @@
 // TODO:
 // -- Функционал:
 // - Реализовать фильтрацию как в макете
-// - Реализовать страницу автомобиля
 // - Сделать скидки
 // - Добавить и настроить реакт.скелетон (и лоадеры если надо)
 // - Добавить и настроить реакт.хелмет
@@ -30,6 +29,7 @@ const NotFound = lazy(() => import('./components/pages/notFound/NotFound'));
 const CarDetails = lazy(() => import('./components/pages/carDetails/CarDetails'));
 const Terms = lazy(() => import('./components/pages/terms/Terms'));
 const Privacy = lazy(() => import('./components/pages/privacy/Privacy'));
+const Order = lazy(() => import('./components/pages/order/Order'));
 
 function App() {
     const [items, setItems] = React.useState([]);
@@ -111,6 +111,7 @@ function App() {
                     <Route path='/settings' exact element={<Settings />} />
                     <Route path='/profile' exact element={<Profile />} />
                     <Route path='/notifications' exact element={<Notifications />} />
+                    <Route path='/orders' exact element={<Order />} />
                     <Route path='/privacy' exact element={<Privacy />} />
                     <Route path='/terms' exact element={<Terms />} />
                     <Route ScrollRestoration path='*' element={<NotFound />} />

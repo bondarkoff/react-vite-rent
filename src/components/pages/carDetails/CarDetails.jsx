@@ -100,7 +100,7 @@ const CarDetails = ({ onFavorite, favorited = false }) => {
                             </div>
                             <div className={styles.detailsBottom}>
                                 <Price price={price} />
-                                <Link to='/' className={styles.button}>
+                                <Link to='/orders' className={styles.button}>
                                     Rent Now
                                 </Link>
                             </div>
