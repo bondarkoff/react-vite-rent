@@ -5,9 +5,9 @@ const Stars = ({ rating }) => {
 
     for (let i = 0; i < 5; i++) {
         if (i < rating) {
-            stars.push(<img key={i} src='./images/starred.svg' alt='Star' />);
+            stars.push(<img key={i} src='/images/starred.svg' alt='Star' />);
         } else {
-            stars.push(<img key={i} src='./images/unstarred.svg' alt='Star' />);
+            stars.push(<img key={i} src='/images/unstarred.svg' alt='Star' />);
         }
     }
 

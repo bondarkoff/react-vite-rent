@@ -8,7 +8,6 @@ const Price = ({ price }) => {
                 style: 'currency',
                 currency: 'USD',
             }).format(price)}
-            /<span>day</span>
         </p>
     );
 };

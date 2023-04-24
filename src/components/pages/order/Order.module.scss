@@ -2,6 +2,11 @@
     margin: 32px 0;
 }
 
+.container {
+    width: 1380px;
+    margin: 0 auto;
+}
+
 .billing {
     max-width: 825px;
     margin-top: 32px;
@@ -183,6 +188,117 @@ input[type='time']::-webkit-calendar-picker-indicator {
 select {
     -webkit-appearance: none;
     -moz-appearance: none;
+    appearance: none;
     text-indent: 1px;
     text-overflow: '';
+}
+
+.summary {
+    height: 100%;
+    margin-top: 32px;
+    margin-left: 32px;
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.summaryTitle {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    color: #1a202c;
+}
+
+.summarySubtitle {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    color: #90a3bf;
+}
+
+.summaryImg {
+    margin: 32px 16px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 132px;
+    height: 108px;
+    background: #3563e9;
+    border-radius: 8px;
+    background-image: url('/images/BG2.png') !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.carTitle {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 45px;
+    color: #1a202c;
+}
+
+.divider {
+    margin-top: 32px;
+    width: 444px;
+    height: 0px;
+    border: 1px solid rgba(195, 212, 233, 0.4);
+}
+
+.promocode {
+    margin-top: 48px;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 32px;
+    background: #f6f7f9;
+    border-radius: 10px;
+}
+
+.promocodeTitle {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    color: #90a3bf;
+    border: none;
+    outline: none;
+    background: transparent !important;
+}
+
+.promocodeButton {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #1a202c;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: transparent !important;
+}
+
+.totalTitle {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 25px;
+    color: #1a202c;
+}
+
+.totalSubtitle {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 22px;
+    color: #90a3bf;
+}
+
+.subtotal,
+.tax {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #90a3bf;
+}
+
+.price {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #1a202c;
 }

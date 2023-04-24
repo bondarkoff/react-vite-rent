@@ -111,7 +111,7 @@ function App() {
                     <Route path='/settings' exact element={<Settings />} />
                     <Route path='/profile' exact element={<Profile />} />
                     <Route path='/notifications' exact element={<Notifications />} />
-                    <Route path='/orders' exact element={<Order />} />
+                    <Route path='/:id/order' exact element={<Order />} />
                     <Route path='/privacy' exact element={<Privacy />} />
                     <Route path='/terms' exact element={<Terms />} />
                     <Route ScrollRestoration path='*' element={<NotFound />} />

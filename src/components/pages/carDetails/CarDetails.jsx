@@ -99,8 +99,11 @@ const CarDetails = ({ onFavorite, favorited = false }) => {
                                 </div>
                             </div>
                             <div className={styles.detailsBottom}>
-                                <Price price={price} />
-                                <Link to='/orders' className={styles.button}>
+                                <div className='d-flex aic'>
+                                    <Price price={price} />
+                                    <span className='span'>/day</span>
+                                </div>
+                                <Link to={`/${id}/order`} className={styles.button}>
                                     Rent Now
                                 </Link>
                             </div>

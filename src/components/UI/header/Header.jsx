@@ -17,7 +17,7 @@ const Header = ({ searchValue, setSearchValue, onChangeSearchInput, handleButton
                                 className={styles.search_icon}
                                 width={24}
                                 height={24}
-                                src='./images/search.svg'
+                                src='/images/search.svg'
                                 alt='Search'
                             />
                             <input
@@ -34,7 +34,7 @@ const Header = ({ searchValue, setSearchValue, onChangeSearchInput, handleButton
                                     className={styles.filter_icon}
                                     width={24}
                                     height={24}
-                                    src='./images/close.svg'
+                                    src='/images/close.svg'
                                     alt='Close'
                                     onClick={() => setSearchValue('')}
                                 />
@@ -43,7 +43,7 @@ const Header = ({ searchValue, setSearchValue, onChangeSearchInput, handleButton
                                     className={styles.filter_icon}
                                     width={24}
                                     height={24}
-                                    src='./images/filter.svg'
+                                    src='/images/filter.svg'
                                     alt='Filter'
                                     id='filter'
                                     onClick={handleButtonClick}
@@ -53,26 +53,21 @@ const Header = ({ searchValue, setSearchValue, onChangeSearchInput, handleButton
                     </div>
                     <div className='d-flex flex-row jcsb aic'>
                         <Link to='/favorite' className={styles.user}>
-                            <img width={24} height={24} src='./images/heart.svg' alt='Favorite' />
+                            <img width={24} height={24} src='/images/heart.svg' alt='Favorite' />
                         </Link>
                         <Link to='/notifications' className={styles.user}>
                             <img
                                 width={24}
                                 height={24}
-                                src='./images/notification.svg'
+                                src='/images/notification.svg'
                                 alt='Notification'
                             />
                         </Link>
                         <Link to='/settings' className={styles.user}>
-                            <img
-                                width={24}
-                                height={24}
-                                src='./images/settings.svg'
-                                alt='Settings'
-                            />
+                            <img width={24} height={24} src='/images/settings.svg' alt='Settings' />
                         </Link>
                         <Link to='/profile' className={styles.user}>
-                            <img width={24} height={24} src='./images/profile.svg' alt='Profile' />
+                            <img width={24} height={24} src='/images/profile.svg' alt='Profile' />
                         </Link>
                     </div>
                 </div>
