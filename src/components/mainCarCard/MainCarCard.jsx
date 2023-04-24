@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './mainCarCard.module.scss';
+import { Link } from 'react-router-dom';
 
 const MainCarCard = () => {
     return (
@@ -13,7 +14,9 @@ const MainCarCard = () => {
                         Ease of doing a car rental safely and <br></br>reliably. Of course at a low
                         price.
                     </div>
-                    <button className={styles.button}>Rental Car</button>
+                    <Link to='/1' className={styles.button}>
+                        Rental Car
+                    </Link>
                     <img className={styles.photo} src='./images/cars/bg_1.png' alt='Car' />
                 </div>
             </div>
@@ -26,7 +29,9 @@ const MainCarCard = () => {
                         Providing cheap car rental services <br></br>and safe and comfortable
                         facilities.
                     </div>
-                    <button className={styles.secondButton}>Rental Car</button>
+                    <Link to='/2' className={styles.secondButton}>
+                        Rental Car
+                    </Link>
                     <img className={styles.photo} src='./images/cars/bg_2.png' alt='Car' />
                 </div>
             </div>
