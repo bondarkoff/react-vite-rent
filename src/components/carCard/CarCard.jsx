@@ -14,11 +14,23 @@ function CarCard({
     body,
     capacity,
     onFavorite,
+    discount,
     id,
     favorited = false,
 }) {
     const [isFavorite, setIsFavorite] = React.useState(favorited);
-    const obj = { id, parentId: id, imageUrl, title, price, gearbox, fuelTank, capacity, body };
+    const obj = {
+        id,
+        parentId: id,
+        imageUrl,
+        title,
+        price,
+        gearbox,
+        fuelTank,
+        capacity,
+        body,
+        discount,
+    };
 
     const onClickFavorite = () => {
         onFavorite(obj);
@@ -76,9 +88,16 @@ function CarCard({
                 </div>
             </div>
             <div className='d-flex flex-row aic jcsb mt-20'>
-                <div className='d-flex aic'>
-                    <Price price={price} />
-                    <span className='span'>/day</span>
+                <div className=''>
+                    <div className='d-flex aic'>
+                        <Price price={price} />
+                        <span className='span'>/day</span>
+                    </div>
+                    {discount && (
+                        <div className='d-flex flex-row aic'>
+                            <div className={styles.discount}>${discount}.00</div>
+                        </div>
+                    )}
                 </div>
                 <Link price={price} to={`/${id}`} className={styles.button}>
                     Rent Now

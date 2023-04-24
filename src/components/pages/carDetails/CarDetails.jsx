@@ -15,7 +15,14 @@ const CarDetails = ({ onFavorite, favorited = false }) => {
     const { id } = useParams();
     const [car, setCar] = React.useState([null]);
     const [isFavorite, setIsFavorite] = React.useState(favorited);
-    const obj = { id, parentId: id, imageUrl: car.imageUrl, title: car.title, price: car.price };
+    const obj = {
+        id,
+        parentId: id,
+        imageUrl: car.imageUrl,
+        title: car.title,
+        price: car.price,
+        discount: car.discount,
+    };
 
     const avgRating = Math.round(
         reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length,
@@ -42,7 +49,7 @@ const CarDetails = ({ onFavorite, favorited = false }) => {
     }, []);
 
     const View = ({ car }) => {
-        const { title, price, imageUrl, capacity, body, fuelTank, gearbox } = car;
+        const { title, price, imageUrl, capacity, body, fuelTank, gearbox, discount } = car;
         return (
             <div className='container'>
                 <div className={styles.carDetails}>
@@ -99,9 +106,17 @@ const CarDetails = ({ onFavorite, favorited = false }) => {
                                 </div>
                             </div>
                             <div className={styles.detailsBottom}>
-                                <div className='d-flex aic'>
-                                    <Price price={price} />
-                                    <span className='span'>/day</span>
+                                <div className=''>
+                                    <div className='d-flex aic'>
+                                        <Price price={price} />
+
+                                        <span className='span'>/day</span>
+                                    </div>
+                                    {discount && (
+                                        <div className='d-flex flex-row aic'>
+                                            <div className={styles.discount}>${discount}.00</div>
+                                        </div>
+                                    )}
                                 </div>
                                 <Link to={`/${id}/order`} className={styles.button}>
                                     Rent Now

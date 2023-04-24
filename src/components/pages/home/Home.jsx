@@ -38,6 +38,7 @@ const Home = ({
                     key={item.id}
                     id={item.id}
                     price={item.price}
+                    discount={item.discount}
                     imageUrl={item.imageUrl}
                     capacity={item.capacity}
                     body={item.body}
@@ -69,7 +70,6 @@ const Home = ({
                     </h2>
                     <div className={styles.carCards}>{renderItems()}</div>
                     <div className={styles.more}>
-                        <div></div>
                         <button
                             onClick={showMore}
                             className={styles.button}
