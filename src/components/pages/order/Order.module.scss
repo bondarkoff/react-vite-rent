@@ -98,6 +98,7 @@
 }
 
 .confirmation {
+    width: 715px;
     margin-top: 24px;
     padding: 16px 32px;
     display: flex;
@@ -152,12 +153,12 @@ input[type='checkbox'] {
 .city,
 .time,
 .date {
-    width: 386px;
+    width: 349px;
     padding: 16px;
 }
 
 .time {
-    width: 353px;
+    width: 319px;
 }
 
 fieldset {
@@ -165,4 +166,23 @@ fieldset {
     outline: none;
     padding: 0;
     margin: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type='time']::-webkit-inner-spin-button,
+input[type='time']::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
 }
