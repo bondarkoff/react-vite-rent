@@ -16,7 +16,6 @@ import React, { lazy, Suspense } from 'react';
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
 import AppContext from './context';
-import Filter from './components/filter/Filter';
 import ScrollToTop from './components/ScrollToTop';
 
 const Home = lazy(() => import('./components/pages/home/Home'));
@@ -81,17 +80,10 @@ function App() {
         setShowFilter(!showFilter);
     };
 
-    const handleCheckbox = () => {
-        setChecked(!checked);
-    };
-
     return (
         <AppContext.Provider value={{ items, favorite, onAddToFavorite }}>
             <Suspense>
                 <ScrollToTop />
-                {showFilter && (
-                    <Filter items={items} handleCheckbox={handleCheckbox} checked={checked} />
-                )}
                 <Routes>
                     <Route
                         path='/'

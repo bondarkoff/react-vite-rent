@@ -38,17 +38,7 @@ const Header = ({ searchValue, setSearchValue, onChangeSearchInput, handleButton
                                     alt='Close'
                                     onClick={() => setSearchValue('')}
                                 />
-                            ) : (
-                                <img
-                                    className={styles.filter_icon}
-                                    width={24}
-                                    height={24}
-                                    src='/images/filter.svg'
-                                    alt='Filter'
-                                    id='filter'
-                                    onClick={handleButtonClick}
-                                />
-                            )}
+                            ) : null}
                         </div>
                     </div>
                     <div className='d-flex flex-row jcsb aic'>

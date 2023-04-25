@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../../UI/header/Header';
 import MainCarCard from '../../mainCarCard/MainCarCard';
-import DestinationSwitch from '../../destinationSwitch/DestinationSwitch';
 import CarCard from '../../carCard/CarCard';
 import Footer from '../../UI/footer/Footer';
 
@@ -59,12 +58,7 @@ const Home = ({
                 handleButtonClick={handleButtonClick}
             />
             <div className='container'>
-                {searchValue ? null : (
-                    <>
-                        <MainCarCard />
-                        <DestinationSwitch />
-                    </>
-                )}
+                {searchValue ? null : <MainCarCard />}
                 <div className='mt-46'>
                     <h2 className={styles.title}>
                         {searchValue ? `Search by request: "${searchValue}"` : 'All cars'}
