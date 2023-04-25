@@ -1,4 +1,6 @@
 import React from 'react';
+import ContentLoader from 'react-content-loader';
+
 import Header from '../../UI/header/Header';
 import MainCarCard from '../../mainCarCard/MainCarCard';
 import CarCard from '../../carCard/CarCard';
@@ -13,7 +15,7 @@ const Home = ({
     searchValue,
     setSearchValue,
     handleButtonClick,
-    checked,
+    isLoading,
 }) => {
     const [displayedItems, setDisplayedItems] = React.useState(8);
     const [allItemsLoaded, setAllItemsLoaded] = React.useState(false);
@@ -56,6 +58,7 @@ const Home = ({
                 searchValue={searchValue}
                 setSearchValue={setSearchValue}
                 handleButtonClick={handleButtonClick}
+                loading={isLoading}
             />
             <div className='container'>
                 {searchValue ? null : <MainCarCard />}
@@ -63,9 +66,7 @@ const Home = ({
                     <h2 className={styles.title}>
                         {searchValue ? `Search by request: "${searchValue}"` : 'All cars'}
                     </h2>
-                    <div className={styles.carCards}>
-                        {checked ? <div>checked</div> : renderItems()}
-                    </div>
+                    <div className={styles.carCards}>{renderItems()}</div>
                     <div className={styles.more}>
                         <button
                             onClick={showMore}

@@ -1,6 +1,5 @@
 // TODO:
 // -- Функционал:
-// - Реализовать фильтрацию как в макете
 // - Добавить и настроить реакт.скелетон (и лоадеры если надо)
 // - Добавить и настроить реакт.хелмет
 // - Пофиксить все баги
@@ -34,7 +33,7 @@ function App() {
     const [favorite, setFavorite] = React.useState([]);
     const [searchValue, setSearchValue] = React.useState('');
     const [showFilter, setShowFilter] = React.useState(false);
-    const [checked, setChecked] = React.useState(false);
+    const [isLoading, setIsLoading] = React.useState(true);
 
     React.useEffect(() => {
         async function fetchData() {
@@ -43,6 +42,8 @@ function App() {
                     axios.get('https://643a8ef1bd3623f1b9b619da.mockapi.io/items'),
                     axios.get('https://643a8ef1bd3623f1b9b619da.mockapi.io/favorites'),
                 ]);
+
+                setIsLoading(false);
 
                 setFavorite(favoriteResponse.data);
                 setItems(itemsResponse.data);
@@ -97,7 +98,7 @@ function App() {
                                 searchValue={searchValue}
                                 setSearchValue={setSearchValue}
                                 handleButtonClick={handleButtonClick}
-                                checked={checked}
+                                isLoading={isLoading}
                             />
                         }
                     />
