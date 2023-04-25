@@ -8,15 +8,19 @@ import Footer from '../../UI/footer/Footer';
 
 import styles from './Home.module.scss';
 
-const Home = ({
-    items,
-    onAddToFavorite,
-    onChangeSearchInput,
-    searchValue,
-    setSearchValue,
-    handleButtonClick,
-    isLoading,
-}) => {
+const Home = (
+    {
+        items,
+        onAddToFavorite,
+        onChangeSearchInput,
+        searchValue,
+        setSearchValue,
+        handleButtonClick,
+        isLoading,
+        loading = false,
+    },
+    props,
+) => {
     const [displayedItems, setDisplayedItems] = React.useState(8);
     const [allItemsLoaded, setAllItemsLoaded] = React.useState(false);
 
@@ -47,6 +51,7 @@ const Home = ({
                     fuelTank={item.fuelTank}
                     gearbox={item.gearbox}
                     onFavorite={obj => onAddToFavorite(obj)}
+                    loading={isLoading}
                 />
             ));
     };
@@ -68,17 +73,37 @@ const Home = ({
                     </h2>
                     <div className={styles.carCards}>{renderItems()}</div>
                     <div className={styles.more}>
-                        <button
-                            onClick={showMore}
-                            className={styles.button}
-                            disabled={allItemsLoaded}>
-                            Show more car
-                        </button>
-                        <div className={styles.count}>{items.length} Car</div>
+                        {loading ? (
+                            <div className='d-flex aic jcc'>
+                                {' '}
+                                <ContentLoader
+                                    speed={2}
+                                    width={116}
+                                    height={40}
+                                    viewBox='0 0 116 40'
+                                    backgroundColor='#a0b5ff'
+                                    foregroundColor='#f6f7f9'
+                                    {...props}>
+                                    <rect x='0' y='0' rx='10' ry='10' width='116' height='40' />
+                                </ContentLoader>
+                            </div>
+                        ) : (
+                            <button
+                                onClick={showMore}
+                                className={styles.button}
+                                disabled={allItemsLoaded}>
+                                Show more car
+                            </button>
+                        )}
+                        {loading ? (
+                            <div className={styles.count}>So many cars...</div>
+                        ) : (
+                            <div className={styles.count}>{items.length} Car</div>
+                        )}
                     </div>
                 </div>
             </div>
-            <Footer />
+            <Footer loading={isLoading} />
         </>
     );
 };

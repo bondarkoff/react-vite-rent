@@ -99,6 +99,7 @@ function App() {
                                 setSearchValue={setSearchValue}
                                 handleButtonClick={handleButtonClick}
                                 isLoading={isLoading}
+                                loading={isLoading}
                             />
                         }
                     />
