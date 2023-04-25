@@ -35,6 +35,7 @@ function App() {
     const [favorite, setFavorite] = React.useState([]);
     const [searchValue, setSearchValue] = React.useState('');
     const [showFilter, setShowFilter] = React.useState(false);
+    const [checked, setChecked] = React.useState(false);
 
     React.useEffect(() => {
         async function fetchData() {
@@ -80,11 +81,17 @@ function App() {
         setShowFilter(!showFilter);
     };
 
+    const handleCheckbox = () => {
+        setChecked(!checked);
+    };
+
     return (
         <AppContext.Provider value={{ items, favorite, onAddToFavorite }}>
             <Suspense>
                 <ScrollToTop />
-                {showFilter && <Filter />}
+                {showFilter && (
+                    <Filter items={items} handleCheckbox={handleCheckbox} checked={checked} />
+                )}
                 <Routes>
                     <Route
                         path='/'
@@ -98,6 +105,7 @@ function App() {
                                 searchValue={searchValue}
                                 setSearchValue={setSearchValue}
                                 handleButtonClick={handleButtonClick}
+                                checked={checked}
                             />
                         }
                     />
