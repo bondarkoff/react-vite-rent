@@ -58,13 +58,13 @@ const Home = (
 
     return (
         <>
-            <Header
+            {/* <Header
                 onChangeSearchInput={onChangeSearchInput}
                 searchValue={searchValue}
                 setSearchValue={setSearchValue}
                 handleButtonClick={handleButtonClick}
                 loading={isLoading}
-            />
+            /> */}
             <div className='container'>
                 {searchValue ? null : <MainCarCard loading={isLoading} />}
                 <div className='mt-46'>
@@ -103,7 +103,7 @@ const Home = (
                     </div>
                 </div>
             </div>
-            <Footer loading={isLoading} />
+            {/* <Footer loading={isLoading} /> */}
         </>
     );
 };

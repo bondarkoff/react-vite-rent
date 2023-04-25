@@ -16,6 +16,8 @@ import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
 import AppContext from './context';
 import ScrollToTop from './components/ScrollToTop';
+import Header from './components/UI/header/Header';
+import Footer from './components/UI/footer/Footer';
 
 const Home = lazy(() => import('./components/pages/home/Home'));
 const Favorite = lazy(() => import('./components/pages/favorite/Favorite'));
@@ -83,6 +85,13 @@ function App() {
 
     return (
         <AppContext.Provider value={{ items, favorite, onAddToFavorite }}>
+            <Header
+                onChangeSearchInput={onChangeSearchInput}
+                searchValue={searchValue}
+                setSearchValue={setSearchValue}
+                handleButtonClick={handleButtonClick}
+                loading={isLoading}
+            />
             <Suspense>
                 <ScrollToTop />
                 <Routes>
@@ -118,6 +127,7 @@ function App() {
                     <Route ScrollRestoration path='*' element={<NotFound />} />
                 </Routes>
             </Suspense>
+            <Footer loading={isLoading} />
         </AppContext.Provider>
     );
 }

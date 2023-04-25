@@ -1,6 +1,4 @@
 import React from 'react';
-import Header from '../../UI/header/Header';
-import Footer from '../../UI/footer/Footer';
 import AppContext from '../../../context';
 
 import styles from './Favorite.module.scss';
@@ -11,7 +9,6 @@ const Favorite = () => {
 
     return (
         <>
-            <Header />
             <div className='container'>
                 <div className={styles.favorite}>
                     <h2 className='mt-46'>Favorite Cars</h2>
@@ -31,7 +28,6 @@ const Favorite = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
         </>
     );
 };

@@ -132,9 +132,7 @@ const CarDetails = ({ onFavorite, favorited = false }) => {
 
     return (
         <>
-            <Header />
             <View car={car} />
-            <Footer />
         </>
     );
 };

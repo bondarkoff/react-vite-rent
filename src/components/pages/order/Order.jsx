@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
-import Footer from '../../UI/footer/Footer';
-import Header from '../../UI/header/Header';
 import Price from '../../carCard/Price.jsx';
 
 import styles from './Order.module.scss';
@@ -520,9 +518,7 @@ const Order = () => {
 
     return (
         <>
-            <Header />
             <View car={car} />
-            <Footer />
         </>
     );
 };
