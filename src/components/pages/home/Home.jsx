@@ -61,7 +61,7 @@ const Home = ({
                 loading={isLoading}
             />
             <div className='container'>
-                {searchValue ? null : <MainCarCard />}
+                {searchValue ? null : <MainCarCard loading={isLoading} />}
                 <div className='mt-46'>
                     <h2 className={styles.title}>
                         {searchValue ? `Search by request: "${searchValue}"` : 'All cars'}
