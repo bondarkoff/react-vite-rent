@@ -1,3 +1,4 @@
+import ContentLoader from 'react-content-loader';
 import styles from './Order.module.scss';
 
 function formatCardNumber(event) {
@@ -39,123 +40,169 @@ function formatCVC(event) {
     }
 }
 
-const Payment = () => {
+const Payment = ({ loading = false, props }) => {
     return (
         <div className={styles.billing}>
-            <div className={styles.billingTitle}>Payment Method</div>
-            <div className='d-flex jcsb'>
-                <div className={styles.billingHeader}>
-                    <div className={styles.billingSubtitle}>Please enter your payment method</div>
-                </div>
-                <div className={styles.billingStep}>Step 3 of 4</div>
-            </div>
-            <div className={styles.payment}>
-                <div className='p-24'>
+            {loading ? (
+                <ContentLoader
+                    speed={2}
+                    width={852}
+                    height={336}
+                    viewBox='0 0 852 336'
+                    backgroundColor='#a0b5ff'
+                    foregroundColor='#f6f7f9'
+                    {...props}>
+                    <rect x='0' y='0' rx='10' ry='10' width='116' height='20' />
+                    <rect x='0' y='35' rx='10' ry='10' width='102' height='20' />
+                    <rect x='0' y='100' rx='10' ry='10' width='116' height='25' />
+                    <rect x='0' y='135' rx='10' ry='10' width='386' height='56' />
+                    <rect x='0' y='215' rx='10' ry='10' width='116' height='25' />
+                    <rect x='0' y='250' rx='10' ry='10' width='386' height='56' />
+                    <rect x='434' y='100' rx='10' ry='10' width='116' height='25' />
+                    <rect x='431' y='135' rx='10' ry='10' width='386' height='56' />
+                    <rect x='432' y='215' rx='10' ry='10' width='116' height='25' />
+                    <rect x='430' y='250' rx='10' ry='10' width='386' height='56' />
+                </ContentLoader>
+            ) : (
+                <>
+                    <div className={styles.billingTitle}>Payment Method</div>
                     <div className='d-flex jcsb'>
-                        <div className='d-flex aic tac'>
-                            <input
-                                type='radio'
-                                id='radio-1'
-                                name='payment-method'
-                                defaultChecked
-                                className='mr-8'
-                            />
-                            <label htmlFor='radio-1'>Credit Card</label>
+                        <div className={styles.billingHeader}>
+                            <div className={styles.billingSubtitle}>
+                                Please enter your payment method
+                            </div>
                         </div>
-                        <div className=''>
-                            <img width={48} height={16} src='/images/visa.png' alt='Visa Card' />
-                            <img width={32} height={20} src='/images/mc.png' alt='MasterCard' />
+                        <div className={styles.billingStep}>Step 3 of 4</div>
+                    </div>
+                    <div className={styles.payment}>
+                        <div className='p-24'>
+                            <div className='d-flex jcsb'>
+                                <div className='d-flex aic tac'>
+                                    <input
+                                        type='radio'
+                                        id='radio-1'
+                                        name='payment-method'
+                                        defaultChecked
+                                        className='mr-8'
+                                    />
+                                    <label htmlFor='radio-1'>Credit Card</label>
+                                </div>
+                                <div className=''>
+                                    <img
+                                        width={48}
+                                        height={16}
+                                        src='/images/visa.png'
+                                        alt='Visa Card'
+                                    />
+                                    <img
+                                        width={32}
+                                        height={20}
+                                        src='/images/mc.png'
+                                        alt='MasterCard'
+                                    />
+                                </div>
+                            </div>
+                            <div className={styles.billingInfo}>
+                                <div className={styles.billingInfoItem}>
+                                    <div className={styles.billingInfoTitle}>Card Number</div>
+                                    <input
+                                        className={styles.paymentInput}
+                                        type='tel'
+                                        inputMode='numeric'
+                                        autoComplete='cc-number'
+                                        maxLength='23'
+                                        required
+                                        placeholder='Card Number'
+                                        onInput={formatCardNumber}
+                                    />
+                                </div>
+                                <div className={styles.billingInfoItem}>
+                                    <div className={styles.billingInfoTitle}>Expiration Date</div>
+                                    <input
+                                        className={styles.paymentInput}
+                                        type='text'
+                                        inputMode='numeric'
+                                        autoComplete='cc-exp'
+                                        maxLength='5'
+                                        required
+                                        placeholder='Expiration Date'
+                                        onInput={formatExpirationDate}
+                                    />
+                                </div>
+                                <div className={styles.billingInfoItem}>
+                                    <div className={styles.billingInfoTitle}>Card Holder</div>
+                                    <input
+                                        className={styles.paymentInput}
+                                        type='name'
+                                        required
+                                        placeholder='Card Holder'
+                                        maxLength='50'
+                                    />
+                                </div>
+                                <div className={styles.billingInfoItem}>
+                                    <div className={styles.billingInfoTitle}>CVC</div>
+                                    <input
+                                        className={styles.paymentInput}
+                                        type='number'
+                                        inputMode='numeric'
+                                        autoComplete='cc-csc'
+                                        maxLength='3'
+                                        required
+                                        placeholder='CVC'
+                                        onInput={formatCVC}
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className={styles.billingInfo}>
-                        <div className={styles.billingInfoItem}>
-                            <div className={styles.billingInfoTitle}>Card Number</div>
-                            <input
-                                className={styles.paymentInput}
-                                type='tel'
-                                inputMode='numeric'
-                                autoComplete='cc-number'
-                                maxLength='23'
-                                required
-                                placeholder='Card Number'
-                                onInput={formatCardNumber}
-                            />
-                        </div>
-                        <div className={styles.billingInfoItem}>
-                            <div className={styles.billingInfoTitle}>Expiration Date</div>
-                            <input
-                                className={styles.paymentInput}
-                                type='text'
-                                inputMode='numeric'
-                                autoComplete='cc-exp'
-                                maxLength='5'
-                                required
-                                placeholder='Expiration Date'
-                                onInput={formatExpirationDate}
-                            />
-                        </div>
-                        <div className={styles.billingInfoItem}>
-                            <div className={styles.billingInfoTitle}>Card Holder</div>
-                            <input
-                                className={styles.paymentInput}
-                                type='name'
-                                required
-                                placeholder='Card Holder'
-                                maxLength='50'
-                            />
-                        </div>
-                        <div className={styles.billingInfoItem}>
-                            <div className={styles.billingInfoTitle}>CVC</div>
-                            <input
-                                className={styles.paymentInput}
-                                type='number'
-                                inputMode='numeric'
-                                autoComplete='cc-csc'
-                                maxLength='3'
-                                required
-                                placeholder='CVC'
-                                onInput={formatCVC}
-                            />
+                    <div className={styles.payment}>
+                        <div className='p-24'>
+                            <div className='d-flex jcsb'>
+                                <div className='d-flex aic tac'>
+                                    <input
+                                        type='radio'
+                                        id='radio-2'
+                                        name='payment-method'
+                                        className='mr-8'
+                                    />
+                                    <label htmlFor='radio-2'>PayPal</label>
+                                </div>
+                                <div className=''>
+                                    <img
+                                        width={100}
+                                        height={24}
+                                        src='/images/paypal.png'
+                                        alt='PayPal'
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div className={styles.payment}>
-                <div className='p-24'>
-                    <div className='d-flex jcsb'>
-                        <div className='d-flex aic tac'>
-                            <input
-                                type='radio'
-                                id='radio-2'
-                                name='payment-method'
-                                className='mr-8'
-                            />
-                            <label htmlFor='radio-2'>PayPal</label>
-                        </div>
-                        <div className=''>
-                            <img width={100} height={24} src='/images/paypal.png' alt='PayPal' />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className={styles.payment}>
-                <div className='p-24'>
-                    <div className='d-flex jcsb'>
-                        <div className='d-flex aic tac'>
-                            <input
-                                type='radio'
-                                id='radio-3'
-                                name='payment-method'
-                                className='mr-8'
-                            />
-                            <label htmlFor='radio-3'>Bitcoin</label>
-                        </div>
-                        <div className=''>
-                            <img width={94} height={20} src='/images/bitcoin.png' alt='Bitcoin' />
+                    <div className={styles.payment}>
+                        <div className='p-24'>
+                            <div className='d-flex jcsb'>
+                                <div className='d-flex aic tac'>
+                                    <input
+                                        type='radio'
+                                        id='radio-3'
+                                        name='payment-method'
+                                        className='mr-8'
+                                    />
+                                    <label htmlFor='radio-3'>Bitcoin</label>
+                                </div>
+                                <div className=''>
+                                    <img
+                                        width={94}
+                                        height={20}
+                                        src='/images/bitcoin.png'
+                                        alt='Bitcoin'
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </>
+            )}
         </div>
     );
 };

@@ -124,7 +124,7 @@ function App() {
                     <Route path='/favorite' exact element={<Favorite items={favorite} />} />
                     <Route path='/settings' exact element={<Settings />} />
                     <Route path='/notifications' exact element={<Notifications />} />
-                    <Route path='/:id/order' exact element={<Order loading={isLoading} />} />
+                    <Route path='/:id/order' exact element={<Order isLoading={isLoading} />} />
                     <Route path='/privacy' exact element={<Privacy />} />
                     <Route path='/terms' exact element={<Terms />} />
                     <Route ScrollRestoration path='*' element={<NotFound />} />

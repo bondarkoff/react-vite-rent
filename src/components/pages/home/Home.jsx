@@ -1,10 +1,8 @@
 import React from 'react';
 import ContentLoader from 'react-content-loader';
 
-import Header from '../../UI/header/Header';
 import MainCarCard from '../../mainCarCard/MainCarCard';
 import CarCard from '../../carCard/CarCard';
-import Footer from '../../UI/footer/Footer';
 
 import styles from './Home.module.scss';
 
