@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
+import ContentLoader from 'react-content-loader';
 
 import Price from '../../carCard/Price';
 import Reviews from './reviews/Reviews';
@@ -9,7 +10,7 @@ import { reviews } from './reviews/Reviews.data';
 
 import styles from './CarDetails.module.scss';
 
-const CarDetails = ({ onFavorite, favorited = false }) => {
+const CarDetails = ({ onFavorite, isLoading, favorited = false }) => {
     const { id } = useParams();
     const [car, setCar] = React.useState([null]);
     const [isFavorite, setIsFavorite] = React.useState(favorited);
@@ -46,91 +47,214 @@ const CarDetails = ({ onFavorite, favorited = false }) => {
         fetchData();
     }, []);
 
-    const View = ({ car }) => {
+    const View = ({ car, loading = false }, props) => {
         const { title, price, imageUrl, capacity, body, fuelTank, gearbox, discount } = car;
         return (
             <div className='container'>
                 <div className={styles.carDetails}>
                     <div className='d-flex flex-row jcc mt-32'>
-                        <div className={styles.left}>
-                            <div className={styles.leftTitle}>
-                                Cars with the best design and acceleration
+                        {loading ? (
+                            <div className='mr-24'>
+                                <ContentLoader
+                                    speed={2}
+                                    width={492}
+                                    height={550}
+                                    viewBox='0 0 492 550'
+                                    backgroundColor='#a0b5ff'
+                                    foregroundColor='#f6f7f9'
+                                    {...props}>
+                                    <rect x='0' y='0' rx='10' ry='10' width='492' height='550' />
+                                </ContentLoader>
                             </div>
-                            <div className={styles.leftSubtitle}>
-                                Safety and comfort while driving a futuristic and elegant cars
+                        ) : (
+                            <div className={styles.left}>
+                                <div className={styles.leftTitle}>
+                                    Cars with the best design and acceleration
+                                </div>
+                                <div className={styles.leftSubtitle}>
+                                    Safety and comfort while driving a futuristic and elegant cars
+                                </div>
+                                <img className={styles.image} src={imageUrl} alt={title} />
                             </div>
-                            <img className={styles.image} src={imageUrl} alt={title} />
-                        </div>
+                        )}
                         <div className={styles.right}>
-                            <div className='d-flex jcsb aic'>
-                                <div className={styles.title}>{title}</div>
-                                {onFavorite && (
-                                    <button className={styles.favorite} onClick={onClickFavorite}>
-                                        <img
-                                            src={
-                                                isFavorite
-                                                    ? './images/like.svg'
-                                                    : './images/unlike.svg'
-                                            }
-                                            width={24}
-                                            height={24}
-                                            alt='To Favorite'
-                                        />
-                                    </button>
-                                )}
-                            </div>
-                            <div className='d-flex flex-row aic tac '>
-                                <Stars className rating={avgRating} />
-                                <p className='ml-8'>{reviews.length} Reviewer</p>
-                            </div>
-                            <div className={styles.descr}>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque
-                                ratione sapiente est pariatur placeat. Eaque porro corporis, iusto
-                                aliquid reiciendis libero harum eum asperiores velit necessitatibus
-                                optio dignissimos autem ut.
-                            </div>
-                            <div className={styles.feature}>
-                                <div className={styles.featureItem}>
-                                    Type Car <span>{body}</span>
-                                </div>
-                                <div className={styles.featureItem}>
-                                    Capacity <span>{capacity} Person</span>
-                                </div>
-                                <div className={styles.featureItem}>
-                                    Gearbox <span>{gearbox}</span>
-                                </div>
-                                <div className={styles.featureItem}>
-                                    Fuel Tank <span>{fuelTank}</span>
-                                </div>
-                            </div>
-                            <div className={styles.detailsBottom}>
-                                <div className=''>
-                                    <div className='d-flex aic'>
-                                        <Price price={price} />
-
-                                        <span className='span'>/day</span>
+                            {loading ? (
+                                <ContentLoader
+                                    speed={2}
+                                    width={500}
+                                    height={40}
+                                    viewBox='0 0 500 40'
+                                    backgroundColor='#a0b5ff'
+                                    foregroundColor='#f6f7f9'
+                                    {...props}>
+                                    <rect x='0' y='0' rx='10' ry='10' width='116' height='16' />
+                                    <rect x='0' y='20' rx='10' ry='10' width='85' height='16' />
+                                    <circle cx='480' cy='16' r='10' />
+                                </ContentLoader>
+                            ) : (
+                                <>
+                                    <div className='d-flex jcsb aic'>
+                                        <div className={styles.title}>{title}</div>
+                                        {onFavorite && (
+                                            <button
+                                                className={styles.favorite}
+                                                onClick={onClickFavorite}>
+                                                <img
+                                                    src={
+                                                        isFavorite
+                                                            ? './images/like.svg'
+                                                            : './images/unlike.svg'
+                                                    }
+                                                    width={24}
+                                                    height={24}
+                                                    alt='To Favorite'
+                                                />
+                                            </button>
+                                        )}
                                     </div>
-                                    {discount && (
-                                        <div className='d-flex flex-row aic'>
-                                            <div className={styles.discount}>${discount}.00</div>
-                                        </div>
-                                    )}
+                                    <div className='d-flex flex-row aic tac '>
+                                        <Stars className rating={avgRating} />
+                                        <p className='ml-8'>{reviews.length} Reviewer</p>
+                                    </div>
+                                </>
+                            )}
+
+                            {loading ? (
+                                <div className='mt-50 pb-50 pt-50'>
+                                    <ContentLoader
+                                        speed={2}
+                                        width={500}
+                                        height={80}
+                                        viewBox='0 0 500 80'
+                                        backgroundColor='#a0b5ff'
+                                        foregroundColor='#f6f7f9'
+                                        {...props}>
+                                        <rect x='0' y='0' rx='10' ry='10' width='500' height='14' />
+                                        <rect
+                                            x='0'
+                                            y='20'
+                                            rx='10'
+                                            ry='10'
+                                            width='500'
+                                            height='14'
+                                        />
+                                        <rect
+                                            x='0'
+                                            y='40'
+                                            rx='10'
+                                            ry='10'
+                                            width='500'
+                                            height='14'
+                                        />
+                                        <rect
+                                            x='0'
+                                            y='60'
+                                            rx='10'
+                                            ry='10'
+                                            width='500'
+                                            height='14'
+                                        />
+                                    </ContentLoader>
                                 </div>
-                                <Link to={`/${id}/order`} className={styles.button}>
-                                    Rent Now
-                                </Link>
-                            </div>
+                            ) : (
+                                <div className={styles.descr}>
+                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque
+                                    ratione sapiente est pariatur placeat. Eaque porro corporis,
+                                    iusto aliquid reiciendis libero harum eum asperiores velit
+                                    necessitatibus optio dignissimos autem ut.
+                                </div>
+                            )}
+                            {loading ? (
+                                <div className='mt-50 mb-50'>
+                                    <ContentLoader
+                                        speed={2}
+                                        width={500}
+                                        height={46}
+                                        viewBox='0 0 500 46'
+                                        backgroundColor='#a0b5ff'
+                                        foregroundColor='#f6f7f9'
+                                        {...props}>
+                                        <rect x='0' y='0' rx='10' ry='10' width='90' height='12' />
+                                        <rect x='0' y='30' rx='10' ry='10' width='90' height='12' />
+                                        <rect
+                                            x='410'
+                                            y='0'
+                                            rx='10'
+                                            ry='10'
+                                            width='90'
+                                            height='12'
+                                        />
+                                        <rect
+                                            x='410'
+                                            y='30'
+                                            rx='10'
+                                            ry='10'
+                                            width='90'
+                                            height='12'
+                                        />
+                                    </ContentLoader>
+                                </div>
+                            ) : (
+                                <div className={styles.feature}>
+                                    <div className={styles.featureItem}>
+                                        Type Car <span>{body}</span>
+                                    </div>
+                                    <div className={styles.featureItem}>
+                                        Capacity <span>{capacity} Person</span>
+                                    </div>
+                                    <div className={styles.featureItem}>
+                                        Gearbox <span>{gearbox}</span>
+                                    </div>
+                                    <div className={styles.featureItem}>
+                                        Fuel Tank <span>{fuelTank}</span>
+                                    </div>
+                                </div>
+                            )}
+                            {loading ? (
+                                <ContentLoader
+                                    speed={2}
+                                    width={500}
+                                    height={40}
+                                    viewBox='0 0 500 40'
+                                    backgroundColor='#a0b5ff'
+                                    foregroundColor='#f6f7f9'
+                                    {...props}>
+                                    <rect x='0' y='0' rx='10' ry='10' width='90' height='12' />
+                                    <rect x='0' y='20' rx='10' ry='10' width='90' height='12' />
+                                    <rect x='410' y='0' rx='10' ry='10' width='90' height='40' />
+                                </ContentLoader>
+                            ) : (
+                                <div className={styles.detailsBottom}>
+                                    <div className=''>
+                                        <div className='d-flex aic'>
+                                            <Price price={price} />
+
+                                            <span className='span'>/day</span>
+                                        </div>
+                                        {discount && (
+                                            <div className='d-flex flex-row aic'>
+                                                <div className={styles.discount}>
+                                                    ${discount}.00
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                    <Link to={`/${id}/order`} className={styles.button}>
+                                        Rent Now
+                                    </Link>
+                                </div>
+                            )}
                         </div>
                     </div>
                 </div>
-                <Reviews rating={avgRating} />
+                <Reviews rating={avgRating} loading={isLoading} />
             </div>
         );
     };
 
     return (
         <>
-            <View car={car} />
+            <View car={car} loading={isLoading} />
         </>
     );
 };

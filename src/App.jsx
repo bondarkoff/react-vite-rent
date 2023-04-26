@@ -114,7 +114,12 @@ function App() {
                     <Route
                         path='/:id'
                         exact
-                        element={<CarDetails onFavorite={obj => onAddToFavorite(obj)} />}
+                        element={
+                            <CarDetails
+                                onFavorite={obj => onAddToFavorite(obj)}
+                                isLoading={isLoading}
+                            />
+                        }
                     />
                     <Route path='/favorite' exact element={<Favorite items={favorite} />} />
                     <Route path='/settings' exact element={<Settings />} />
