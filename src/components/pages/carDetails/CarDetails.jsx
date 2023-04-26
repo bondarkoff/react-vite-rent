@@ -2,8 +2,6 @@ import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 
-import Header from '../../UI/header/Header';
-import Footer from '../../UI/footer/Footer';
 import Price from '../../carCard/Price';
 import Reviews from './reviews/Reviews';
 import Stars from './reviews/Stars';

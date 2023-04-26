@@ -22,7 +22,6 @@ import Footer from './components/UI/footer/Footer';
 const Home = lazy(() => import('./components/pages/home/Home'));
 const Favorite = lazy(() => import('./components/pages/favorite/Favorite'));
 const Settings = lazy(() => import('./components/pages/settings/Settings'));
-const Profile = lazy(() => import('./components/pages/profile/Profile'));
 const Notifications = lazy(() => import('./components/pages/notifications/Notifications'));
 const NotFound = lazy(() => import('./components/pages/notFound/NotFound'));
 const CarDetails = lazy(() => import('./components/pages/carDetails/CarDetails'));
@@ -119,7 +118,6 @@ function App() {
                     />
                     <Route path='/favorite' exact element={<Favorite items={favorite} />} />
                     <Route path='/settings' exact element={<Settings />} />
-                    <Route path='/profile' exact element={<Profile />} />
                     <Route path='/notifications' exact element={<Notifications />} />
                     <Route path='/:id/order' exact element={<Order />} />
                     <Route path='/privacy' exact element={<Privacy />} />
