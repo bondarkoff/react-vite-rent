@@ -1,3 +1,5 @@
+@import '../../assets/styles/base/variables';
+
 .card,
 .secondCard {
     margin-right: 32px;
@@ -62,8 +64,16 @@
     justify-content: center;
     display: flex;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        background: darken($main-color, 10%);
+    }
 }
 
 .secondButton {
     background: $second-color;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        background: darken($second-color, 10%);
+    }
 }

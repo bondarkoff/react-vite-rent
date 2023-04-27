@@ -104,8 +104,9 @@
     line-height: 20px;
     color: #ffffff;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
     &:hover {
-        background: #2c4eb8;
+        background: darken($main-color, 10%);
     }
 }
 
