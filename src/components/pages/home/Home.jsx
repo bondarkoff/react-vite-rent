@@ -1,5 +1,6 @@
 import React from 'react';
 import ContentLoader from 'react-content-loader';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 import MainCarCard from '../../mainCarCard/MainCarCard';
 import CarCard from '../../carCard/CarCard';
@@ -56,44 +57,50 @@ const Home = (
 
     return (
         <>
-            <div className='container'>
-                {searchValue ? null : <MainCarCard loading={isLoading} />}
-                <div className='mt-46'>
-                    <h2 className={styles.title}>
-                        {searchValue ? `Search by request: "${searchValue}"` : 'All cars'}
-                    </h2>
-                    <div className={styles.carCards}>{renderItems()}</div>
-                    <div className={styles.more}>
-                        {loading ? (
-                            <div className='d-flex aic jcc'>
-                                {' '}
-                                <ContentLoader
-                                    speed={2}
-                                    width={116}
-                                    height={40}
-                                    viewBox='0 0 116 40'
-                                    backgroundColor='#a0b5ff'
-                                    foregroundColor='#f6f7f9'
-                                    {...props}>
-                                    <rect x='0' y='0' rx='10' ry='10' width='116' height='40' />
-                                </ContentLoader>
-                            </div>
-                        ) : (
-                            <button
-                                onClick={showMore}
-                                className={styles.button}
-                                disabled={allItemsLoaded}>
-                                Show more car
-                            </button>
-                        )}
-                        {loading ? (
-                            <div className={styles.count}>So many cars...</div>
-                        ) : (
-                            <div className={styles.count}>{items.length} Car</div>
-                        )}
+            <HelmetProvider>
+                <Helmet>
+                    <title>Morent - Car Rental</title>
+                    <meta name='description' content='Car Rental' />
+                </Helmet>
+                <div className='container'>
+                    {searchValue ? null : <MainCarCard loading={isLoading} />}
+                    <div className='mt-46'>
+                        <h2 className={styles.title}>
+                            {searchValue ? `Search by request: "${searchValue}"` : 'All cars'}
+                        </h2>
+                        <div className={styles.carCards}>{renderItems()}</div>
+                        <div className={styles.more}>
+                            {loading ? (
+                                <div className='d-flex aic jcc'>
+                                    {' '}
+                                    <ContentLoader
+                                        speed={2}
+                                        width={116}
+                                        height={40}
+                                        viewBox='0 0 116 40'
+                                        backgroundColor='#a0b5ff'
+                                        foregroundColor='#f6f7f9'
+                                        {...props}>
+                                        <rect x='0' y='0' rx='10' ry='10' width='116' height='40' />
+                                    </ContentLoader>
+                                </div>
+                            ) : (
+                                <button
+                                    onClick={showMore}
+                                    className={styles.button}
+                                    disabled={allItemsLoaded}>
+                                    Show more car
+                                </button>
+                            )}
+                            {loading ? (
+                                <div className={styles.count}>So many cars...</div>
+                            ) : (
+                                <div className={styles.count}>{items.length} Car</div>
+                            )}
+                        </div>
                     </div>
                 </div>
-            </div>
+            </HelmetProvider>
         </>
     );
 };

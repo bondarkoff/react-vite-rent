@@ -128,9 +128,7 @@ function CarCard(
                                     </div>
                                 )}
                             </div>
-                            <Link price={price} to={`/${id}`} className={styles.button}>
-                                Rent Now
-                            </Link>
+                            <button className={styles.button}>Rent Now</button>
                         </div>
                     </>
                 )}

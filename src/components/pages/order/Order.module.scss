@@ -234,6 +234,10 @@ select {
     background-image: url('/images/BG2.png') !important;
     background-repeat: no-repeat;
     background-size: cover;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+    }
 }
 
 .carTitle {

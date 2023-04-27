@@ -5,9 +5,10 @@ import Price from '../../carCard/Price';
 import { reviews } from '../carDetails/reviews/Reviews.data';
 
 import styles from './Order.module.scss';
+import { Link } from 'react-router-dom';
 
 const Summary = ({ car, loading = false, props }) => {
-    const { title, imageUrl, price } = car;
+    const { imageUrl, price, id } = car;
 
     const avgRating = Math.round(
         reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length,
@@ -39,11 +40,15 @@ const Summary = ({ car, loading = false, props }) => {
                         your rental car.
                     </div>
                     <div className='d-flex aic'>
-                        <div className={styles.summaryImg}>
-                            <img width={116} height={36} src={imageUrl} alt='Your Car' />
-                        </div>
+                        <Link to={`/${car.id}`}>
+                            <div className={styles.summaryImg}>
+                                <img width={116} height={36} src={imageUrl} alt='Your Car' />
+                            </div>
+                        </Link>
                         <div className='d-flex flex-col'>
-                            <div className={styles.carTitle}>{car.title}</div>
+                            <Link to={`/${car.id}`}>
+                                <div className={styles.carTitle}>{car.title}</div>
+                            </Link>
                             <div className='d-flex flex-row aic tac '>
                                 <Stars className rating={avgRating} />
                                 <p className='ml-8'>{reviews.length} Reviewer</p>

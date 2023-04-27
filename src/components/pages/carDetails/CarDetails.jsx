@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import ContentLoader from 'react-content-loader';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 import Price from '../../carCard/Price';
 import Reviews from './reviews/Reviews';
@@ -50,205 +51,247 @@ const CarDetails = ({ onFavorite, isLoading, favorited = false }) => {
     const View = ({ car, loading = false }, props) => {
         const { title, price, imageUrl, capacity, body, fuelTank, gearbox, discount } = car;
         return (
-            <div className='container'>
-                <div className={styles.carDetails}>
-                    <div className='d-flex flex-row jcc mt-32'>
-                        {loading ? (
-                            <div className='mr-24'>
-                                <ContentLoader
-                                    speed={2}
-                                    width={492}
-                                    height={550}
-                                    viewBox='0 0 492 550'
-                                    backgroundColor='#a0b5ff'
-                                    foregroundColor='#f6f7f9'
-                                    {...props}>
-                                    <rect x='0' y='0' rx='10' ry='10' width='492' height='550' />
-                                </ContentLoader>
-                            </div>
-                        ) : (
-                            <div className={styles.left}>
-                                <div className={styles.leftTitle}>
-                                    Cars with the best design and acceleration
-                                </div>
-                                <div className={styles.leftSubtitle}>
-                                    Safety and comfort while driving a futuristic and elegant cars
-                                </div>
-                                <img className={styles.image} src={imageUrl} alt={title} />
-                            </div>
-                        )}
-                        <div className={styles.right}>
+            <HelmetProvider>
+                <Helmet>
+                    <title>{title}</title>
+                    <meta name='description' content='Car Details' />
+                </Helmet>
+                <div className='container'>
+                    <div className={styles.carDetails}>
+                        <div className='d-flex flex-row jcc mt-32'>
                             {loading ? (
-                                <ContentLoader
-                                    speed={2}
-                                    width={500}
-                                    height={40}
-                                    viewBox='0 0 500 40'
-                                    backgroundColor='#a0b5ff'
-                                    foregroundColor='#f6f7f9'
-                                    {...props}>
-                                    <rect x='0' y='0' rx='10' ry='10' width='116' height='16' />
-                                    <rect x='0' y='20' rx='10' ry='10' width='85' height='16' />
-                                    <circle cx='480' cy='16' r='10' />
-                                </ContentLoader>
-                            ) : (
-                                <>
-                                    <div className='d-flex jcsb aic'>
-                                        <div className={styles.title}>{title}</div>
-                                        {onFavorite && (
-                                            <button
-                                                className={styles.favorite}
-                                                onClick={onClickFavorite}>
-                                                <img
-                                                    src={
-                                                        isFavorite
-                                                            ? './images/like.svg'
-                                                            : './images/unlike.svg'
-                                                    }
-                                                    width={24}
-                                                    height={24}
-                                                    alt='To Favorite'
-                                                />
-                                            </button>
-                                        )}
-                                    </div>
-                                    <div className='d-flex flex-row aic tac '>
-                                        <Stars className rating={avgRating} />
-                                        <p className='ml-8'>{reviews.length} Reviewer</p>
-                                    </div>
-                                </>
-                            )}
-
-                            {loading ? (
-                                <div className='mt-50 pb-50 pt-50'>
+                                <div className='mr-24'>
                                     <ContentLoader
                                         speed={2}
-                                        width={500}
-                                        height={80}
-                                        viewBox='0 0 500 80'
+                                        width={492}
+                                        height={550}
+                                        viewBox='0 0 492 550'
                                         backgroundColor='#a0b5ff'
                                         foregroundColor='#f6f7f9'
                                         {...props}>
-                                        <rect x='0' y='0' rx='10' ry='10' width='500' height='14' />
                                         <rect
                                             x='0'
-                                            y='20'
+                                            y='0'
                                             rx='10'
                                             ry='10'
-                                            width='500'
-                                            height='14'
-                                        />
-                                        <rect
-                                            x='0'
-                                            y='40'
-                                            rx='10'
-                                            ry='10'
-                                            width='500'
-                                            height='14'
-                                        />
-                                        <rect
-                                            x='0'
-                                            y='60'
-                                            rx='10'
-                                            ry='10'
-                                            width='500'
-                                            height='14'
+                                            width='492'
+                                            height='550'
                                         />
                                     </ContentLoader>
                                 </div>
                             ) : (
-                                <div className={styles.descr}>
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque
-                                    ratione sapiente est pariatur placeat. Eaque porro corporis,
-                                    iusto aliquid reiciendis libero harum eum asperiores velit
-                                    necessitatibus optio dignissimos autem ut.
+                                <div className={styles.left}>
+                                    <div className={styles.leftTitle}>
+                                        Cars with the best design and acceleration
+                                    </div>
+                                    <div className={styles.leftSubtitle}>
+                                        Safety and comfort while driving a futuristic and elegant
+                                        cars
+                                    </div>
+                                    <img className={styles.image} src={imageUrl} alt={title} />
                                 </div>
                             )}
-                            {loading ? (
-                                <div className='mt-50 mb-50'>
+                            <div className={styles.right}>
+                                {loading ? (
                                     <ContentLoader
                                         speed={2}
                                         width={500}
-                                        height={46}
-                                        viewBox='0 0 500 46'
+                                        height={40}
+                                        viewBox='0 0 500 40'
+                                        backgroundColor='#a0b5ff'
+                                        foregroundColor='#f6f7f9'
+                                        {...props}>
+                                        <rect x='0' y='0' rx='10' ry='10' width='116' height='16' />
+                                        <rect x='0' y='20' rx='10' ry='10' width='85' height='16' />
+                                        <circle cx='480' cy='16' r='10' />
+                                    </ContentLoader>
+                                ) : (
+                                    <>
+                                        <div className='d-flex jcsb aic'>
+                                            <div className={styles.title}>{title}</div>
+                                            {onFavorite && (
+                                                <button
+                                                    className={styles.favorite}
+                                                    onClick={onClickFavorite}>
+                                                    <img
+                                                        src={
+                                                            isFavorite
+                                                                ? './images/like.svg'
+                                                                : './images/unlike.svg'
+                                                        }
+                                                        width={24}
+                                                        height={24}
+                                                        alt='To Favorite'
+                                                    />
+                                                </button>
+                                            )}
+                                        </div>
+                                        <div className='d-flex flex-row aic tac '>
+                                            <Stars className rating={avgRating} />
+                                            <p className='ml-8'>{reviews.length} Reviewer</p>
+                                        </div>
+                                    </>
+                                )}
+
+                                {loading ? (
+                                    <div className='mt-50 pb-50 pt-50'>
+                                        <ContentLoader
+                                            speed={2}
+                                            width={500}
+                                            height={80}
+                                            viewBox='0 0 500 80'
+                                            backgroundColor='#a0b5ff'
+                                            foregroundColor='#f6f7f9'
+                                            {...props}>
+                                            <rect
+                                                x='0'
+                                                y='0'
+                                                rx='10'
+                                                ry='10'
+                                                width='500'
+                                                height='14'
+                                            />
+                                            <rect
+                                                x='0'
+                                                y='20'
+                                                rx='10'
+                                                ry='10'
+                                                width='500'
+                                                height='14'
+                                            />
+                                            <rect
+                                                x='0'
+                                                y='40'
+                                                rx='10'
+                                                ry='10'
+                                                width='500'
+                                                height='14'
+                                            />
+                                            <rect
+                                                x='0'
+                                                y='60'
+                                                rx='10'
+                                                ry='10'
+                                                width='500'
+                                                height='14'
+                                            />
+                                        </ContentLoader>
+                                    </div>
+                                ) : (
+                                    <div className={styles.descr}>
+                                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                        Itaque ratione sapiente est pariatur placeat. Eaque porro
+                                        corporis, iusto aliquid reiciendis libero harum eum
+                                        asperiores velit necessitatibus optio dignissimos autem ut.
+                                    </div>
+                                )}
+                                {loading ? (
+                                    <div className='mt-50 mb-50'>
+                                        <ContentLoader
+                                            speed={2}
+                                            width={500}
+                                            height={46}
+                                            viewBox='0 0 500 46'
+                                            backgroundColor='#a0b5ff'
+                                            foregroundColor='#f6f7f9'
+                                            {...props}>
+                                            <rect
+                                                x='0'
+                                                y='0'
+                                                rx='10'
+                                                ry='10'
+                                                width='90'
+                                                height='12'
+                                            />
+                                            <rect
+                                                x='0'
+                                                y='30'
+                                                rx='10'
+                                                ry='10'
+                                                width='90'
+                                                height='12'
+                                            />
+                                            <rect
+                                                x='410'
+                                                y='0'
+                                                rx='10'
+                                                ry='10'
+                                                width='90'
+                                                height='12'
+                                            />
+                                            <rect
+                                                x='410'
+                                                y='30'
+                                                rx='10'
+                                                ry='10'
+                                                width='90'
+                                                height='12'
+                                            />
+                                        </ContentLoader>
+                                    </div>
+                                ) : (
+                                    <div className={styles.feature}>
+                                        <div className={styles.featureItem}>
+                                            Type Car <span>{body}</span>
+                                        </div>
+                                        <div className={styles.featureItem}>
+                                            Capacity <span>{capacity} Person</span>
+                                        </div>
+                                        <div className={styles.featureItem}>
+                                            Gearbox <span>{gearbox}</span>
+                                        </div>
+                                        <div className={styles.featureItem}>
+                                            Fuel Tank <span>{fuelTank}</span>
+                                        </div>
+                                    </div>
+                                )}
+                                {loading ? (
+                                    <ContentLoader
+                                        speed={2}
+                                        width={500}
+                                        height={40}
+                                        viewBox='0 0 500 40'
                                         backgroundColor='#a0b5ff'
                                         foregroundColor='#f6f7f9'
                                         {...props}>
                                         <rect x='0' y='0' rx='10' ry='10' width='90' height='12' />
-                                        <rect x='0' y='30' rx='10' ry='10' width='90' height='12' />
+                                        <rect x='0' y='20' rx='10' ry='10' width='90' height='12' />
                                         <rect
                                             x='410'
                                             y='0'
                                             rx='10'
                                             ry='10'
                                             width='90'
-                                            height='12'
-                                        />
-                                        <rect
-                                            x='410'
-                                            y='30'
-                                            rx='10'
-                                            ry='10'
-                                            width='90'
-                                            height='12'
+                                            height='40'
                                         />
                                     </ContentLoader>
-                                </div>
-                            ) : (
-                                <div className={styles.feature}>
-                                    <div className={styles.featureItem}>
-                                        Type Car <span>{body}</span>
-                                    </div>
-                                    <div className={styles.featureItem}>
-                                        Capacity <span>{capacity} Person</span>
-                                    </div>
-                                    <div className={styles.featureItem}>
-                                        Gearbox <span>{gearbox}</span>
-                                    </div>
-                                    <div className={styles.featureItem}>
-                                        Fuel Tank <span>{fuelTank}</span>
-                                    </div>
-                                </div>
-                            )}
-                            {loading ? (
-                                <ContentLoader
-                                    speed={2}
-                                    width={500}
-                                    height={40}
-                                    viewBox='0 0 500 40'
-                                    backgroundColor='#a0b5ff'
-                                    foregroundColor='#f6f7f9'
-                                    {...props}>
-                                    <rect x='0' y='0' rx='10' ry='10' width='90' height='12' />
-                                    <rect x='0' y='20' rx='10' ry='10' width='90' height='12' />
-                                    <rect x='410' y='0' rx='10' ry='10' width='90' height='40' />
-                                </ContentLoader>
-                            ) : (
-                                <div className={styles.detailsBottom}>
-                                    <div className=''>
-                                        <div className='d-flex aic'>
-                                            <Price price={price} />
+                                ) : (
+                                    <div className={styles.detailsBottom}>
+                                        <div className=''>
+                                            <div className='d-flex aic'>
+                                                <Price price={price} />
 
-                                            <span className='span'>/day</span>
-                                        </div>
-                                        {discount && (
-                                            <div className='d-flex flex-row aic'>
-                                                <div className={styles.discount}>
-                                                    ${discount}.00
-                                                </div>
+                                                <span className='span'>/day</span>
                                             </div>
-                                        )}
+                                            {discount && (
+                                                <div className='d-flex flex-row aic'>
+                                                    <div className={styles.discount}>
+                                                        ${discount}.00
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </div>
+                                        <Link to={`/${id}/order`} className={styles.button}>
+                                            Rent Now
+                                        </Link>
                                     </div>
-                                    <Link to={`/${id}/order`} className={styles.button}>
-                                        Rent Now
-                                    </Link>
-                                </div>
-                            )}
+                                )}
+                            </div>
                         </div>
                     </div>
+                    <Reviews rating={avgRating} loading={isLoading} />
                 </div>
-                <Reviews rating={avgRating} loading={isLoading} />
-            </div>
+            </HelmetProvider>
         );
     };
 

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 import Billing from './Billing.jsx';
 import Rental from './Rental.jsx';
@@ -32,21 +33,27 @@ const Order = ({ isLoading }) => {
 
     const View = ({ car, isLoading }) => {
         return (
-            <div className={styles.container}>
-                <div className='d-flex jcsb'>
-                    <div className={styles.order}>
-                        <form action=''>
-                            <fieldset>
-                                <Billing loading={isLoading} />
-                                <Rental loading={isLoading} />
-                                <Payment loading={isLoading} />
-                                <Confirmation loading={isLoading} />
-                            </fieldset>
-                        </form>
+            <HelmetProvider>
+                <Helmet>
+                    <title>{`${car.title} - Order`}</title>
+                    <meta name='description' content='Car Details' />
+                </Helmet>
+                <div className={styles.container}>
+                    <div className='d-flex jcsb'>
+                        <div className={styles.order}>
+                            <form action=''>
+                                <fieldset>
+                                    <Billing loading={isLoading} />
+                                    <Rental loading={isLoading} />
+                                    <Payment loading={isLoading} />
+                                    <Confirmation loading={isLoading} />
+                                </fieldset>
+                            </form>
+                        </div>
+                        <Summary car={car} loading={isLoading} />
                     </div>
-                    <Summary car={car} loading={isLoading} />
                 </div>
-            </div>
+            </HelmetProvider>
         );
     };
 
