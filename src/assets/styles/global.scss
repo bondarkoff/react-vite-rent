@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
 
+@import 'base/variables';
+
 * {
     font-family: 'Plus Jakarta Sans', sans-serif;
 }
@@ -43,6 +45,6 @@ a {
     font-weight: 700;
     font-size: 14px;
     line-height: 18px;
-    color: #90a3bf;
+    color: $subtitle-color;
     align-self: end;
 }

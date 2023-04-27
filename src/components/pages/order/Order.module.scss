@@ -1,3 +1,5 @@
+@import '../../../assets/styles/base/variables';
+
 .order {
     margin: 32px 0;
 }
@@ -22,7 +24,7 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 25px;
-    color: #1a202c;
+    color: $title-color;
 }
 
 .billingSubtitle,
@@ -31,7 +33,7 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;
-    color: #90a3bf;
+    color: $subtitle-color;
 }
 
 .billingStep {
@@ -51,7 +53,7 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 19px;
-    color: #1a202c;
+    color: $title-color;
 }
 
 .billingInput,
@@ -87,7 +89,7 @@
     position: absolute;
     width: 8px;
     height: 8px;
-    background: #3563e9;
+    background: $main-color;
     border-radius: 70px;
     top: 50%;
     left: 50%;
@@ -95,7 +97,7 @@
 }
 
 .smallSecondDot {
-    background: #5caffc;
+    background: $second-color;
 }
 
 .title {
@@ -133,7 +135,7 @@ input[type='checkbox'] {
     padding: 16px 32px;
     border: none;
     outline: none;
-    background: #3563e9;
+    background: $main-color;
     border-radius: 10px;
     font-weight: 700;
     font-size: 16px;
@@ -206,14 +208,14 @@ select {
     font-weight: 700;
     font-size: 20px;
     line-height: 25px;
-    color: #1a202c;
+    color: $title-color;
 }
 
 .summarySubtitle {
     font-weight: 500;
     font-size: 14px;
     line-height: 22px;
-    color: #90a3bf;
+    color: $subtitle-color;
 }
 
 .summaryImg {
@@ -223,7 +225,7 @@ select {
     justify-content: center;
     width: 132px;
     height: 108px;
-    background: #3563e9;
+    background: $main-color;
     border-radius: 8px;
     background-image: url('/images/BG2.png') !important;
     background-repeat: no-repeat;
@@ -234,7 +236,7 @@ select {
     font-weight: 700;
     font-size: 32px;
     line-height: 45px;
-    color: #1a202c;
+    color: $title-color;
 }
 
 .divider {
@@ -257,7 +259,7 @@ select {
     font-weight: 400;
     font-size: 14px;
     line-height: 28px;
-    color: #90a3bf;
+    color: $subtitle-color;
     border: none;
     outline: none;
     background: transparent !important;
@@ -267,7 +269,7 @@ select {
     font-weight: 600;
     font-size: 16px;
     line-height: 19px;
-    color: #1a202c;
+    color: $title-color;
     cursor: pointer;
     border: none;
     outline: none;
@@ -278,14 +280,14 @@ select {
     font-weight: 700;
     font-size: 20px;
     line-height: 25px;
-    color: #1a202c;
+    color: $title-color;
 }
 
 .totalSubtitle {
     font-weight: 500;
     font-size: 14px;
     line-height: 22px;
-    color: #90a3bf;
+    color: $subtitle-color;
 }
 
 .subtotal,
@@ -293,12 +295,12 @@ select {
     font-weight: 600;
     font-size: 16px;
     line-height: 19px;
-    color: #90a3bf;
+    color: $subtitle-color;
 }
 
 .price {
     font-weight: 600;
     font-size: 16px;
     line-height: 19px;
-    color: #1a202c;
+    color: $title-color;
 }

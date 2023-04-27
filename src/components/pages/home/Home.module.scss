@@ -1,3 +1,5 @@
+@import '../../../assets/styles/base/variables';
+
 .carCards {
     margin-top: 20px;
     display: grid;
@@ -11,14 +13,14 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 20px;
-    color: #90a3bf;
+    color: $subtitle-color;
 }
 
 .count {
     font-weight: 700;
     font-size: 14px;
     line-height: 18px;
-    color: #90a3bf;
+    color: $subtitle-color;
 
     position: absolute;
     right: 0;
@@ -27,7 +29,7 @@
 .button {
     width: 156px;
     height: 44px;
-    background: #3563e9;
+    background: $main-color;
     border-radius: 4px;
     padding: 0px 20px;
     font-weight: 600;
@@ -43,7 +45,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     &:disabled {
-        background: #90a3bf;
+        background: $subtitle-color;
         cursor: not-allowed;
     }
     &:active {

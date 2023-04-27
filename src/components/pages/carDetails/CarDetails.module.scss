@@ -1,3 +1,5 @@
+@import '../../../assets/styles/base/variables';
+
 .right {
     width: 492px;
     height: 500px;
@@ -13,7 +15,7 @@
     border-radius: 10px;
     width: 492px;
     height: 508px;
-    background: #3563e9;
+    background: $main-color;
     background-image: url('./images/BG2.png') !important;
     background-repeat: no-repeat;
     background-size: cover;
@@ -44,7 +46,7 @@
     font-weight: 700;
     font-size: 32px;
     line-height: 45px;
-    color: #1a202c;
+    color: $title-color;
 }
 
 .descr {
@@ -70,7 +72,7 @@
     font-size: 20px;
     line-height: 25px;
     letter-spacing: -0.02em;
-    color: #90a3bf;
+    color: $subtitle-color;
     span {
         right: 0;
         position: absolute;
@@ -95,7 +97,7 @@
     outline: none;
     width: 140px;
     height: 56px;
-    background: #3563e9;
+    background: $main-color;
     border-radius: 4px;
     font-weight: 700;
     font-size: 16px;
@@ -121,5 +123,5 @@
     font-size: 16px;
     line-height: 20px;
     text-decoration-line: line-through;
-    color: #90a3bf;
+    color: $subtitle-color;
 }

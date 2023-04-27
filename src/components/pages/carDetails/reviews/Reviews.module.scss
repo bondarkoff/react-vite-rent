@@ -1,3 +1,5 @@
+@import '../../../../assets/styles/base/variables';
+
 .reviews {
     margin: 32px 0;
     background: #ffffff;
@@ -16,12 +18,12 @@
     font-weight: 600;
     font-size: 20px;
     line-height: 25px;
-    color: #1a202c;
+    color: $title-color;
 }
 
 .reviewsCount {
     padding: 6px 16px;
-    background: #3563e9;
+    background: $main-color;
     border-radius: 4px;
     font-weight: 700;
     font-size: 14px;
@@ -35,7 +37,7 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 25px;
-    color: #1a202c;
+    color: $title-color;
 }
 
 .itemJob {
@@ -43,7 +45,7 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;
-    color: #90a3bf;
+    color: $subtitle-color;
 }
 
 .itemComment {
@@ -66,10 +68,10 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 20px;
-    color: #90a3bf;
+    color: $subtitle-color;
     cursor: pointer;
     &:hover {
-        color: #3563e9;
+        color: $main-color;
     }
     &:disabled {
         cursor: not-allowed;

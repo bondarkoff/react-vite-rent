@@ -1,3 +1,5 @@
+@import '../../../assets/styles/base/variables';
+
 header {
     height: 124px;
     width: 100%;
@@ -12,7 +14,7 @@ header {
     font-size: 32px;
     line-height: 38px;
     letter-spacing: 1px;
-    color: #3563e9;
+    color: $main-color;
     margin-right: 64px;
     text-decoration: none;
     :hover {

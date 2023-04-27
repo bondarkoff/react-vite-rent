@@ -1,3 +1,5 @@
+@import '../../assets/styles/base/variables';
+
 .card {
     max-width: 304px;
     max-height: 388px;
@@ -18,7 +20,7 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 18px;
-    color: #90a3bf;
+    color: $subtitle-color;
 }
 
 .title {
@@ -27,7 +29,7 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 25px;
-    color: #1a202c;
+    color: $title-color;
 }
 
 .favorite {
@@ -44,7 +46,7 @@
     font-weight: 700;
     font-size: 14px;
     line-height: 18px;
-    color: #90a3bf;
+    color: $subtitle-color;
 }
 
 .blur {
@@ -59,11 +61,11 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 25px;
-    color: #1a202c;
+    color: $title-color;
     span {
         font-size: 14px;
         line-height: 18px;
-        color: #90a3bf;
+        color: $subtitle-color;
     }
 }
 
@@ -73,7 +75,7 @@
     max-width: 116px;
     height: 44px;
     padding: 0px 20px;
-    background: #3563e9;
+    background: $main-color;
     border-radius: 4px;
     cursor: pointer;
     border: none;
@@ -90,5 +92,5 @@
     font-size: 14px;
     line-height: 18px;
     text-decoration-line: line-through;
-    color: #90a3bf;
+    color: $subtitle-color;
 }
