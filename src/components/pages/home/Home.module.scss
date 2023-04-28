@@ -39,17 +39,23 @@
     cursor: pointer;
     border: none;
     outline: none;
-
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: all 0.3s ease-in-out;
     &:disabled {
         background: $subtitle-color;
         cursor: not-allowed;
+        &:hover {
+            background: darken($subtitle-color, 20%);
+        }
     }
     &:active {
         background: #2a4db7;
+    }
+    &:hover {
+        background: darken($main-color, 10%);
     }
 }
 

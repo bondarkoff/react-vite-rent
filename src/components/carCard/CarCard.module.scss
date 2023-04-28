@@ -34,6 +34,10 @@
     font-size: 20px;
     line-height: 25px;
     color: $title-color;
+    p {
+        color: $title-color;
+        text-decoration: none;
+    }
 }
 
 .favorite {

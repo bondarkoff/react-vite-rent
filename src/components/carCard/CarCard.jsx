@@ -43,32 +43,34 @@ function CarCard(
     };
 
     return (
-        <Link to={`/${id}`}>
-            <div className={styles.card}>
-                {loading ? (
-                    <ContentLoader
-                        speed={2}
-                        width={304}
-                        height={388}
-                        viewBox='0 0 304 388'
-                        backgroundColor='#a0b5ff'
-                        foregroundColor='#f6f7f9'
-                        {...props}>
-                        <rect x='0' y='0' rx='10' ry='10' width='116' height='16' />
-                        <rect x='0' y='265' rx='10' ry='10' width='68' height='16' />
-                        <rect x='110' y='265' rx='10' ry='10' width='68' height='16' />
-                        <rect x='220' y='265' rx='10' ry='10' width='68' height='16' />
-                        <rect x='0' y='340' rx='10' ry='10' width='116' height='16' />
-                        <rect x='0' y='370' rx='10' ry='10' width='99' height='16' />
-                        <rect x='185' y='345' rx='10' ry='10' width='116' height='40' />
-                        <rect x='0' y='25' rx='10' ry='10' width='88' height='16' />
-                        <circle cx='282' cy='15' r='15' />
-                    </ContentLoader>
-                ) : (
-                    <>
-                        <h2 className={styles.title}>
+        <div className={styles.card}>
+            {loading ? (
+                <ContentLoader
+                    speed={2}
+                    width={304}
+                    height={388}
+                    viewBox='0 0 304 388'
+                    backgroundColor='#a0b5ff'
+                    foregroundColor='#f6f7f9'
+                    {...props}>
+                    <rect x='0' y='0' rx='10' ry='10' width='116' height='16' />
+                    <rect x='0' y='265' rx='10' ry='10' width='68' height='16' />
+                    <rect x='110' y='265' rx='10' ry='10' width='68' height='16' />
+                    <rect x='220' y='265' rx='10' ry='10' width='68' height='16' />
+                    <rect x='0' y='340' rx='10' ry='10' width='116' height='16' />
+                    <rect x='0' y='370' rx='10' ry='10' width='99' height='16' />
+                    <rect x='185' y='345' rx='10' ry='10' width='116' height='40' />
+                    <rect x='0' y='25' rx='10' ry='10' width='88' height='16' />
+                    <circle cx='282' cy='15' r='15' />
+                </ContentLoader>
+            ) : (
+                <>
+                    <h2 className={styles.title}>
+                        <Link to={`/${id}`}>
                             <p>{title}</p>
-                            {onFavorite && (
+                        </Link>
+                        {onFavorite && (
+                            <div className=''>
                                 <button className={styles.favorite} onClick={onClickFavorite}>
                                     <img
                                         src={
@@ -77,8 +79,10 @@ function CarCard(
                                         alt='To Favorite'
                                     />
                                 </button>
-                            )}
-                        </h2>
+                            </div>
+                        )}
+                    </h2>
+                    <Link to={`/${id}`}>
                         <div className={styles.body}>{body}</div>
                         <div className='d-flex aic jcc pos-r'>
                             <img className='mt-50' src={imageUrl} alt='Car' />
@@ -130,10 +134,10 @@ function CarCard(
                             </div>
                             <button className={styles.button}>Rent Now</button>
                         </div>
-                    </>
-                )}
-            </div>
-        </Link>
+                    </Link>
+                </>
+            )}
+        </div>
     );
 }
 
