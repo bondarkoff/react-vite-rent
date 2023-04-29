@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import axios from 'axios';
 import { Route, Routes, Navigate } from 'react-router-dom';
-import AppContext from '../Context';
+import AppContext from '../context';
 import ScrollToTop from '../ScrollToTop';
 import Header from '../UI/Header/Header';
 import Footer from '../UI/Footer/Footer';

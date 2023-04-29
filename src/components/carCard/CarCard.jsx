@@ -5,7 +5,7 @@ import ContentLoader from 'react-content-loader';
 import Price from './Price';
 
 import styles from './CarCard.module.scss';
-import AppContext from '../Context';
+import AppContext from '../context';
 
 function CarCard({
     title,

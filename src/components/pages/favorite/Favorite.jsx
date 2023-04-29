@@ -1,5 +1,5 @@
 import React from 'react';
-import AppContext from '../../Context';
+import AppContext from '../../context';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 import styles from './Favorite.module.scss';
