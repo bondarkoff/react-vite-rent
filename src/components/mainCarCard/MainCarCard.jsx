@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import styles from './mainCarCard.module.scss';
 
-const MainCarCard = ({ loading = false }, props) => {
+const MainCarCard = ({ loading = false, props }) => {
     return (
         <div className='d-flex flex-row jcsb aic'>
             {loading ? (
@@ -28,7 +28,7 @@ const MainCarCard = ({ loading = false }, props) => {
                             Ease of doing a car rental safely and <br></br>reliably. Of course at a
                             low price.
                         </div>
-                        <Link to='/1' className={styles.button}>
+                        <Link to='/cars/1' className={styles.button}>
                             Rental Car
                         </Link>
                         <img className={styles.photo} src='./images/cars/bg_1.png' alt='Car' />
@@ -56,7 +56,7 @@ const MainCarCard = ({ loading = false }, props) => {
                             Providing cheap car rental services <br></br>and safe and comfortable
                             facilities.
                         </div>
-                        <Link to='/2' className={styles.secondButton}>
+                        <Link to='/cars/2' className={styles.secondButton}>
                             Rental Car
                         </Link>
                         <img className={styles.photo} src='./images/cars/bg_2.png' alt='Car' />
