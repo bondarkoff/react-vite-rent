@@ -119,7 +119,7 @@ const Reviews = ({ loading = false, props }) => {
                 ))}
             </div>
             <button disabled={allItemsLoaded} onClick={showMore} className={styles.showMore}>
-                Show More <img src='./images/grey-down.svg' alt='Show More' className='ml-10' />
+                Show More <img src='/images/grey-down.svg' alt='Show More' className='ml-10' />
             </button>
         </div>
     );

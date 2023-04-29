@@ -9,7 +9,7 @@
 // - Деплой?
 import React, { lazy, Suspense } from 'react';
 import axios from 'axios';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import AppContext from './context';
 import ScrollToTop from './components/ScrollToTop';
 import Header from './components/UI/header/Header';
@@ -85,7 +85,7 @@ function App() {
                 <ScrollToTop />
                 <Routes>
                     <Route
-                        path='/'
+                        path='/cars'
                         exact
                         element={
                             <Home
@@ -99,8 +99,9 @@ function App() {
                             />
                         }
                     />
+                    <Route path='/' element={<Navigate to='/cars' replace />} />
                     <Route
-                        path='/:id'
+                        path='/cars/:id'
                         exact
                         element={
                             <CarDetails
@@ -116,10 +117,10 @@ function App() {
                     />
                     <Route path='/settings' exact element={<Settings />} />
                     <Route path='/notifications' exact element={<Notifications />} />
-                    <Route path='/:id/order' exact element={<Order isLoading={isLoading} />} />
+                    <Route path='/cars/:id/order' exact element={<Order isLoading={isLoading} />} />
                     <Route path='/privacy' exact element={<Privacy />} />
                     <Route path='/terms' exact element={<Terms />} />
-                    <Route ScrollRestoration path='*' element={<NotFound />} />
+                    <Route path='*' element={<NotFound />} />
                 </Routes>
             </Suspense>
             <Footer loading={isLoading} />

@@ -50,8 +50,9 @@ const CarDetails = ({ onFavorite, isLoading, favorited = false }) => {
         fetchData();
     }, []);
 
-    const View = ({ car, loading = false }, props) => {
-        const { title, price, imageUrl, capacity, body, fuelTank, gearbox, discount } = car;
+    const View = ({ car, loading = false, props }) => {
+        const { title, price, imageUrl, capacity, body, fuelTank, gearbox, discount, parentId } =
+            car;
         return (
             <HelmetProvider>
                 <Helmet>
@@ -120,8 +121,8 @@ const CarDetails = ({ onFavorite, isLoading, favorited = false }) => {
                                                             favorite.find(
                                                                 obj => obj.parentId === id,
                                                             )
-                                                                ? './images/like.svg'
-                                                                : './images/unlike.svg'
+                                                                ? '/images/like.svg'
+                                                                : '/images/unlike.svg'
                                                         }
                                                         width={24}
                                                         height={24}
@@ -285,7 +286,9 @@ const CarDetails = ({ onFavorite, isLoading, favorited = false }) => {
                                                 </div>
                                             )}
                                         </div>
-                                        <Link to={`/${id}/order`} className={styles.button}>
+                                        <Link
+                                            to={`/cars/${parentId}/order`}
+                                            className={styles.button}>
                                             Rent Now
                                         </Link>
                                     </div>

@@ -70,7 +70,7 @@ function CarCard({
             ) : (
                 <>
                     <h2 className={styles.title}>
-                        <Link to={`/${parentId}`}>
+                        <Link to={`/cars/${parentId}`}>
                             <p>{title}</p>
                         </Link>
                         {onFavorite && (
@@ -87,7 +87,7 @@ function CarCard({
                             </button>
                         )}
                     </h2>
-                    <Link to={`/${parentId}`}>
+                    <Link to={`/cars/${parentId}`}>
                         <div className={styles.body}>{body}</div>
                         <div className='d-flex aic jcc pos-r'>
                             <img className='mt-50' src={imageUrl} alt='Car' />
