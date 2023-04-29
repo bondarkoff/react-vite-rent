@@ -1,20 +1,20 @@
 import React, { lazy, Suspense } from 'react';
 import axios from 'axios';
 import { Route, Routes, Navigate } from 'react-router-dom';
-import AppContext from './Context';
-import ScrollToTop from './components/ScrollToTop';
-import Header from './components/UI/Header/Header';
-import Footer from './components/UI/Footer/Footer';
+import AppContext from '../context';
+import ScrollToTop from '../ScrollToTop';
+import Header from '../UI/Header/Header';
+import Footer from '../UI/Footer/Footer';
 
-const Home = lazy(() => import('./components/Pages/Home/Home'));
-const Favorite = lazy(() => import('./components/Pages/Favorite/Favorite'));
-const Settings = lazy(() => import('./components/Pages/Settings/Settings'));
-const Notifications = lazy(() => import('./components/Pages/Notifications/Notifications'));
-const NotFound = lazy(() => import('./components/Pages/NotFound/NotFound'));
-const CarDetails = lazy(() => import('./components/Pages/CarDetails/CarDetails'));
-const Terms = lazy(() => import('./components/Pages/Terms/Terms'));
-const Privacy = lazy(() => import('./components/Pages/Privacy/Privacy'));
-const Order = lazy(() => import('./components/Pages/Order/Order'));
+const Home = lazy(() => import('../Pages/Home/Home'));
+const Favorite = lazy(() => import('../Pages/Favorite/Favorite'));
+const Settings = lazy(() => import('../Pages/Settings/Settings'));
+const Notifications = lazy(() => import('../Pages/Notifications/Notifications'));
+const NotFound = lazy(() => import('../Pages/NotFound/NotFound'));
+const CarDetails = lazy(() => import('../Pages/CarDetails/CarDetails'));
+const Terms = lazy(() => import('../Pages/Terms/Terms'));
+const Privacy = lazy(() => import('../Pages/Privacy/Privacy'));
+const Order = lazy(() => import('../Pages/Order/Order'));
 
 function App() {
     const [items, setItems] = React.useState([]);
