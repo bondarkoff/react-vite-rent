@@ -7,19 +7,7 @@ import CarCard from '../../carCard/CarCard';
 
 import styles from './Home.module.scss';
 
-const Home = (
-    {
-        items,
-        onAddToFavorite,
-        onChangeSearchInput,
-        searchValue,
-        setSearchValue,
-        handleButtonClick,
-        isLoading,
-        loading = false,
-    },
-    props,
-) => {
+const Home = ({ items, onAddToFavorite, searchValue, isLoading, loading = false }, props) => {
     const [displayedItems, setDisplayedItems] = React.useState(8);
     const [allItemsLoaded, setAllItemsLoaded] = React.useState(false);
 
@@ -42,6 +30,7 @@ const Home = (
                     title={item.title}
                     key={item.id}
                     id={item.id}
+                    parentId={item.parentId}
                     price={item.price}
                     discount={item.discount}
                     imageUrl={item.imageUrl}

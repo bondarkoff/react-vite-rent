@@ -5,8 +5,17 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import styles from './Favorite.module.scss';
 import CarCard from '../../carCard/CarCard';
 
-const Favorite = () => {
+const Favorite = ({ searchValue, favorited = true }) => {
     const { favorite, onAddToFavorite } = React.useContext(AppContext);
+
+    const renderItems = () => {
+        const filteredItems = favorite.filter(item =>
+            item.title.toLowerCase().includes(searchValue.toLowerCase()),
+        );
+        return filteredItems.map((item, index) => (
+            <CarCard key={index} favorited={favorited} onFavorite={onAddToFavorite} {...item} />
+        ));
+    };
 
     return (
         <>
@@ -22,14 +31,7 @@ const Favorite = () => {
                             {favorite.length <= 0 ? (
                                 <div>You don't have favorite cars, add some..</div>
                             ) : (
-                                favorite.map((item, index) => (
-                                    <CarCard
-                                        key={index}
-                                        favorited={true}
-                                        onFavorite={onAddToFavorite}
-                                        {...item}
-                                    />
-                                ))
+                                renderItems()
                             )}
                         </div>
                     </div>

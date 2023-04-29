@@ -10,11 +10,13 @@ import Stars from './reviews/Stars';
 import { reviews } from './reviews/Reviews.data';
 
 import styles from './CarDetails.module.scss';
+import AppContext from '../../../context';
 
 const CarDetails = ({ onFavorite, isLoading, favorited = false }) => {
     const { id } = useParams();
     const [car, setCar] = React.useState([null]);
     const [isFavorite, setIsFavorite] = React.useState(favorited);
+    const { favorite } = React.useContext(AppContext);
     const obj = {
         id,
         parentId: id,
@@ -115,7 +117,9 @@ const CarDetails = ({ onFavorite, isLoading, favorited = false }) => {
                                                     onClick={onClickFavorite}>
                                                     <img
                                                         src={
-                                                            isFavorite
+                                                            favorite.find(
+                                                                obj => obj.parentId === id,
+                                                            )
                                                                 ? './images/like.svg'
                                                                 : './images/unlike.svg'
                                                         }

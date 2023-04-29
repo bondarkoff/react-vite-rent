@@ -29,7 +29,6 @@ function App() {
     const [items, setItems] = React.useState([]);
     const [favorite, setFavorite] = React.useState([]);
     const [searchValue, setSearchValue] = React.useState('');
-    const [showFilter, setShowFilter] = React.useState(false);
     const [isLoading, setIsLoading] = React.useState(true);
 
     React.useEffect(() => {
@@ -74,17 +73,12 @@ function App() {
         setSearchValue(event.target.value);
     };
 
-    const handleButtonClick = () => {
-        setShowFilter(!showFilter);
-    };
-
     return (
         <AppContext.Provider value={{ items, favorite, onAddToFavorite }}>
             <Header
                 onChangeSearchInput={onChangeSearchInput}
                 searchValue={searchValue}
                 setSearchValue={setSearchValue}
-                handleButtonClick={handleButtonClick}
                 loading={isLoading}
             />
             <Suspense>
@@ -96,12 +90,10 @@ function App() {
                         element={
                             <Home
                                 items={items}
-                                favorite={favorite}
                                 onAddToFavorite={onAddToFavorite}
                                 onChangeSearchInput={onChangeSearchInput}
                                 searchValue={searchValue}
                                 setSearchValue={setSearchValue}
-                                handleButtonClick={handleButtonClick}
                                 isLoading={isLoading}
                                 loading={isLoading}
                             />
@@ -117,7 +109,11 @@ function App() {
                             />
                         }
                     />
-                    <Route path='/favorite' exact element={<Favorite items={favorite} />} />
+                    <Route
+                        path='/favorite'
+                        exact
+                        element={<Favorite items={favorite} searchValue={searchValue} />}
+                    />
                     <Route path='/settings' exact element={<Settings />} />
                     <Route path='/notifications' exact element={<Notifications />} />
                     <Route path='/:id/order' exact element={<Order isLoading={isLoading} />} />

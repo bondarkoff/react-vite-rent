@@ -5,28 +5,30 @@ import ContentLoader from 'react-content-loader';
 import Price from './Price';
 
 import styles from './CarCard.module.scss';
+import AppContext from '../../context';
 
-function CarCard(
-    {
-        title,
-        price,
-        imageUrl,
-        gearbox,
-        fuelTank,
-        body,
-        capacity,
-        onFavorite,
-        discount,
-        id,
-        favorited = false,
-        loading = false,
-    },
+function CarCard({
+    title,
+    price,
+    imageUrl,
+    gearbox,
+    fuelTank,
+    body,
+    capacity,
+    onFavorite,
+    discount,
+    id,
+    parentId,
+    favorited = false,
+    loading = false,
     props,
-) {
+}) {
     const [isFavorite, setIsFavorite] = React.useState(favorited);
+    const { favorite } = React.useContext(AppContext);
+
     const obj = {
         id,
-        parentId: id,
+        parentId: parentId,
         imageUrl,
         title,
         price,
@@ -36,6 +38,8 @@ function CarCard(
         body,
         discount,
     };
+
+    console.log(parentId);
 
     const onClickFavorite = () => {
         onFavorite(obj);
@@ -66,23 +70,24 @@ function CarCard(
             ) : (
                 <>
                     <h2 className={styles.title}>
-                        <Link to={`/${id}`}>
+                        <Link to={`/${parentId}`}>
                             <p>{title}</p>
                         </Link>
                         {onFavorite && (
-                            <div className=''>
-                                <button className={styles.favorite} onClick={onClickFavorite}>
-                                    <img
-                                        src={
-                                            isFavorite ? './images/like.svg' : './images/unlike.svg'
-                                        }
-                                        alt='To Favorite'
-                                    />
-                                </button>
-                            </div>
+                            <button className={styles.favorite} onClick={onClickFavorite}>
+                                <img
+                                    src={
+                                        isFavorite ||
+                                        favorite.find(obj => obj.parentId === parentId)
+                                            ? '/images/like.svg'
+                                            : '/images/unlike.svg'
+                                    }
+                                    alt={isFavorite ? 'Like' : 'Unlike'}
+                                />
+                            </button>
                         )}
                     </h2>
-                    <Link to={`/${id}`}>
+                    <Link to={`/${parentId}`}>
                         <div className={styles.body}>{body}</div>
                         <div className='d-flex aic jcc pos-r'>
                             <img className='mt-50' src={imageUrl} alt='Car' />
