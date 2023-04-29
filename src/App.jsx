@@ -1,29 +1,20 @@
-// TODO:
-// -- Функционал:
-// - Пофиксить все баги
-// - Добавить адаптивность
-// -- В последнюю очередь:
-// - Переписать scss со вложеностью
-// - Переименовать .jsx в .js
-// - Переименовать все папки в PascalCase?
-// - Деплой?
 import React, { lazy, Suspense } from 'react';
 import axios from 'axios';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import AppContext from './context';
 import ScrollToTop from './components/ScrollToTop';
-import Header from './components/UI/header/Header';
-import Footer from './components/UI/footer/Footer';
+import Header from './components/UI/Header/Header';
+import Footer from './components/UI/Footer/Footer';
 
-const Home = lazy(() => import('./components/pages/home/Home'));
-const Favorite = lazy(() => import('./components/pages/favorite/Favorite'));
-const Settings = lazy(() => import('./components/pages/settings/Settings'));
-const Notifications = lazy(() => import('./components/pages/notifications/Notifications'));
-const NotFound = lazy(() => import('./components/pages/notFound/NotFound'));
-const CarDetails = lazy(() => import('./components/pages/carDetails/CarDetails'));
-const Terms = lazy(() => import('./components/pages/terms/Terms'));
-const Privacy = lazy(() => import('./components/pages/privacy/Privacy'));
-const Order = lazy(() => import('./components/pages/order/Order'));
+const Home = lazy(() => import('./components/Pages/Home/Home'));
+const Favorite = lazy(() => import('./components/Pages/Favorite/Favorite'));
+const Settings = lazy(() => import('./components/Pages/Settings/Settings'));
+const Notifications = lazy(() => import('./components/Pages/Notifications/Notifications'));
+const NotFound = lazy(() => import('./components/Pages/NotFound/NotFound'));
+const CarDetails = lazy(() => import('./components/Pages/CarDetails/CarDetails'));
+const Terms = lazy(() => import('./components/Pages/Terms/Terms'));
+const Privacy = lazy(() => import('./components/Pages/Privacy/Privacy'));
+const Order = lazy(() => import('./components/Pages/Order/Order'));
 
 function App() {
     const [items, setItems] = React.useState([]);

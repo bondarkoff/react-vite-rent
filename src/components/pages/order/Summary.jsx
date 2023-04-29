@@ -1,14 +1,14 @@
 import ContentLoader from 'react-content-loader';
 
-import Stars from '../carDetails/reviews/Stars';
+import Stars from '../CarDetails/Reviews/Stars';
 import Price from '../../carCard/Price';
-import { reviews } from '../carDetails/reviews/Reviews.data';
+import { reviews } from '../CarDetails/Reviews/Reviews.data';
 
 import styles from './Order.module.scss';
 import { Link } from 'react-router-dom';
 
 const Summary = ({ car, loading = false, props }) => {
-    const { imageUrl, price, id } = car;
+    const { imageUrl, price } = car;
 
     const avgRating = Math.round(
         reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length,
