@@ -4,10 +4,7 @@ import ContentLoader from 'react-content-loader';
 
 import styles from './header.module.scss';
 
-const Header = (
-    { searchValue, setSearchValue, onChangeSearchInput, handleButtonClick, loading = false },
-    props,
-) => {
+const Header = ({ searchValue, setSearchValue, onChangeSearchInput, loading = false, props }) => {
     return (
         <header>
             <div className='container'>
