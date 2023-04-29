@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ContentLoader from 'react-content-loader';
 
-import styles from './header.module.scss';
+import styles from './Header.module.scss';
 
 const Header = ({ searchValue, setSearchValue, onChangeSearchInput, loading = false, props }) => {
     return (

@@ -10,7 +10,7 @@ import Stars from './reviews/Stars';
 import { reviews } from './reviews/Reviews.data';
 
 import styles from './CarDetails.module.scss';
-import AppContext from '../../../context';
+import AppContext from '../../../Context';
 
 const CarDetails = ({ onFavorite, isLoading, favorited = false }) => {
     const { id } = useParams();
