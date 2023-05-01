@@ -1,0 +1,79 @@
+@import '../../assets/styles/base/variables';
+
+.card,
+.secondCard {
+    margin-right: 32px;
+    margin-top: 32px;
+    position: relative;
+    width: 640px;
+    height: 360px;
+    background: $second-color;
+    border-radius: 10px;
+    background-image: url('../../assets/images/BG.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    &:last-child {
+        margin-right: 0px;
+    }
+}
+
+.secondCard {
+    background: $main-color;
+    background-image: url('../../assets/images/BG2.png') !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.photo {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 38px;
+    color: #fff;
+}
+
+.subtitle {
+    margin-top: 16px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;
+    color: #fff;
+}
+
+.button,
+.secondButton {
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #fff;
+    width: 120px;
+    height: 44px;
+    background: $main-color;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    padding: 0px 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        background: darken($main-color, 10%);
+    }
+}
+
+.secondButton {
+    background: $second-color;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        background: darken($second-color, 10%);
+    }
+}
