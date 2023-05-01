@@ -125,22 +125,34 @@ const Footer = ({ loading = false }, props) => {
                                 <div className={styles.socialItemTitle}>Socials</div>
                                 <ul className={styles.socialItemLink}>
                                     <li>
-                                        <a href='https://discord.com/' target='_blank'>
+                                        <a
+                                            href='https://discord.com/'
+                                            target='_blank'
+                                            rel='noreferrer'>
                                             Discord
                                         </a>
                                     </li>
                                     <li>
-                                        <a href='https://www.instagram.com/' target='_blank'>
+                                        <a
+                                            href='https://www.instagram.com/'
+                                            target='_blank'
+                                            rel='noreferrer'>
                                             Instagram
                                         </a>
                                     </li>
                                     <li>
-                                        <a href='https://twitter.com/' target='_blank'>
+                                        <a
+                                            href='https://twitter.com/'
+                                            target='_blank'
+                                            rel='noreferrer'>
                                             Twitter
                                         </a>
                                     </li>
                                     <li>
-                                        <a href='https://www.facebook.com/' target='_blank'>
+                                        <a
+                                            href='https://www.facebook.com/'
+                                            target='_blank'
+                                            rel='noreferrer'>
                                             Facebook
                                         </a>
                                     </li>

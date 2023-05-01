@@ -9,7 +9,7 @@
     height: 360px;
     background: $second-color;
     border-radius: 10px;
-    background-image: url('./images/BG.png');
+    background-image: url('../../assets/images/BG.png');
     background-repeat: no-repeat;
     background-size: cover;
     &:last-child {
@@ -19,7 +19,7 @@
 
 .secondCard {
     background: $main-color;
-    background-image: url('./images/BG2.png') !important;
+    background-image: url('../../assets/images/BG2.png') !important;
     background-repeat: no-repeat;
     background-size: cover;
 }

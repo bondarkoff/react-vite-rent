@@ -4,10 +4,10 @@ import axios from 'axios';
 import ContentLoader from 'react-content-loader';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
-import Price from '../../carCard/Price';
-import Reviews from './reviews/Reviews';
-import Stars from './reviews/Stars';
-import { reviews } from './reviews/Reviews.data';
+import Price from '../../CarCard/Price';
+import Reviews from './Reviews/Reviews';
+import Stars from './Reviews/Stars';
+import { reviews } from './Reviews/Reviews.data';
 
 import styles from './CarDetails.module.scss';
 import AppContext from '../../context';

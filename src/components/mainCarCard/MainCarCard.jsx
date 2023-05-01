@@ -2,7 +2,7 @@ import React from 'react';
 import ContentLoader from 'react-content-loader';
 import { Link } from 'react-router-dom';
 
-import styles from './mainCarCard.module.scss';
+import styles from './MainCarCard.module.scss';
 
 const MainCarCard = ({ loading = false, props }) => {
     return (

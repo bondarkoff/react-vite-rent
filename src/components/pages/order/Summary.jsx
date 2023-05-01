@@ -1,7 +1,7 @@
 import ContentLoader from 'react-content-loader';
 
 import Stars from '../CarDetails/Reviews/Stars';
-import Price from '../../carCard/Price';
+import Price from '../../CarCard/Price';
 import { reviews } from '../CarDetails/Reviews/Reviews.data';
 
 import styles from './Order.module.scss';

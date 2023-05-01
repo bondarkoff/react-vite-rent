@@ -2,8 +2,8 @@ import React from 'react';
 import ContentLoader from 'react-content-loader';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
-import MainCarCard from '../../mainCarCard/MainCarCard';
-import CarCard from '../../carCard/CarCard';
+import MainCarCard from '../../MainCarCard/MainCarCard';
+import CarCard from '../../CarCard/CarCard';
 
 import styles from './Home.module.scss';
 

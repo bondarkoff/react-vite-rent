@@ -3,7 +3,7 @@ import AppContext from '../../context';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 import styles from './Favorite.module.scss';
-import CarCard from '../../carCard/CarCard';
+import CarCard from '../../CarCard/CarCard';
 
 const Favorite = ({ searchValue, favorited = true }) => {
     const { favorite, onAddToFavorite } = React.useContext(AppContext);
