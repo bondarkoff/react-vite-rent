@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ContentLoader from 'react-content-loader';
 
 import Price from './Price';
 
 import styles from './CarCard.module.scss';
-import AppContext from '../context';
 
 function CarCard({
     title,
@@ -24,7 +23,13 @@ function CarCard({
     props,
 }) {
     const [isFavorite, setIsFavorite] = React.useState(favorited);
-    const { favorite } = React.useContext(AppContext);
+
+    useEffect(() => {
+        const favoriteValue = localStorage.getItem(`favorite_${parentId}`);
+        if (favoriteValue) {
+            setIsFavorite(JSON.parse(favoriteValue));
+        }
+    }, [parentId]);
 
     const obj = {
         id,
@@ -39,11 +44,11 @@ function CarCard({
         discount,
     };
 
-    console.log(parentId);
-
     const onClickFavorite = () => {
         onFavorite(obj);
-        setIsFavorite(!isFavorite);
+        const newValue = !isFavorite;
+        setIsFavorite(newValue);
+        localStorage.setItem(`favorite_${parentId}`, JSON.stringify(newValue));
     };
 
     return (
@@ -76,12 +81,7 @@ function CarCard({
                         {onFavorite && (
                             <button className={styles.favorite} onClick={onClickFavorite}>
                                 <img
-                                    src={
-                                        isFavorite ||
-                                        favorite.find(obj => obj.parentId === parentId)
-                                            ? '/images/like.svg'
-                                            : '/images/unlike.svg'
-                                    }
+                                    src={isFavorite ? '/images/like.svg' : '/images/unlike.svg'}
                                     alt={isFavorite ? 'Like' : 'Unlike'}
                                 />
                             </button>
